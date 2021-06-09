@@ -1,0 +1,11 @@
+charset,Shift_JIS
+type,ghost
+name,雀-ホワンホワン
+sakura.name,ホワンホワン
+kero.name,none
+craftman,Don
+craftmanurl,http://sosiremi.appspot.com/ghost/jong-whanwhan/
+homeurl,
+shiori,satori.dll
+icon,icon.ico
+sstp.allowunspecifiedsend,0

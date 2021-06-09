@@ -1,0 +1,37 @@
+charset,Shift_JIS
+version,1
+
+group,__disabled
+{
+	151,__parts
+	152,__parts
+	153,__parts
+	154,__parts
+	155,__parts
+	156,__parts
+	161,__parts
+	162,__parts
+	163,__parts
+	164,__parts
+	171,__parts
+	172,__parts
+	173,__parts
+}
+group,ƒzƒƒ“ƒzƒƒ“
+{
+	scope,0
+	0,‘f
+	1,Æ‚ê
+	2,‹Á‚«
+	3,•sˆÀ
+	4,—‚¿‚İ
+	5,”÷Î‚İ
+	6,–Ú•Â‚¶
+	7,“{‚è
+	8,—âÎ
+}
+group,none
+{
+	scope,1
+	10,–³‚µ
+}
