@@ -1,7 +1,7 @@
 ========================================================================
 【ソフト名称】雀-ホワンホワン
 【 制 作 者 】Don
-【 動作環境 】WindowsVista/SP2 + SSP/2.3.16
+【 動作環境 】Windows10 21H1 + SSP/2.5.04
 【 タ イ プ 】「伺か」用ゴースト
 【 取扱種別 】フリーウェア
 【 配布月日 】2014/01/18
@@ -10,23 +10,15 @@
 ========================================================================
 ■概要
 
-伺か互換ベースウェアに対してSSTP送信を行う麻雀ゲームソフトからの
-イベント通知に対応したプレイヤーゴーストです。
-
-  麻雀ゲームソフト「テナリ君」配布元
-    tidas1974
-      https://sites.google.com/site/tidas1974/tenari
-
-  「テナリ君」用SSTP送信パッチ配布元
-    すくりや
-      http://nikolat.herokuapp.com/ukagaka/mahjong-with-ghost-enabled/
+  伺か互換ベースウェアに対してSSTP送信を行う麻雀ゲームソフトからの
+  イベント通知に対応したプレイヤーゴーストです。
 
 ■ライセンス
 
 □SHIORIとして「里々」を使用しています。
 
     satoriya-shiori
-      https://code.google.com/p/satoriya-shiori/
+      https://github.com/ponapalt/satoriya-shiori
 
 □SAORIとして「AquesTalkSaori」を使用しています。
 
