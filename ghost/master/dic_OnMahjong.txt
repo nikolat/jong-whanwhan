@@ -183,7 +183,9 @@ OnMahjongResponse
 ＃ Reference3: 以降、Reference2同様
 ＃----------------------------------------------------------
 ＊MJ.naku?
-\![raiseother,（Sender）,（MJ.ResponseEventID）,（MJ.Version）,（R1）,（if,（MJ.can_ron）,ron,no）]
+＃コマンドを送らないことでサーバーに対応を委任する
+\![raiseother,（Sender）,（MJ.ResponseEventID）,（MJ.Version）,（R1）,]
+＃\![raiseother,（Sender）,（MJ.ResponseEventID）,（MJ.Version）,（R1）,（if,（MJ.can_ron）,ron,no）]
 
 ＠MJ.can_ron
 （set,MJ.tmp_can_ron,0）（loop,MJ.search_ron,2,（Rの数）-1）（MJ.tmp_can_ron）（set,MJ.tmp_can_ron,）

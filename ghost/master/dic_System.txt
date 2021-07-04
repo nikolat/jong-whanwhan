@@ -39,6 +39,15 @@
 ＊0Bustつつかれ
 ：（１）…。
 
+＊OnUpdateBegin
+：（６）…。
+＊OnUpdateComplete
+：（０）…。
+＊OnUpdateFailure
+：（３）…。
+＊OnUpdateReady
+：（５）…。
+
 ＊sakura.recommendsites
 satoriya-shiori
 https://github.com/ponapalt/satoriya-shiori/wiki
