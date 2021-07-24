@@ -31,7 +31,8 @@ OnMahjongResponse
 ＃==========================================================
 ＊MJ.イベントログ垂れ流し
 ＄スクリプトの一番頭	\C
-：\_q\n\nID: OnMahjong（loop,showRef,0,（Rの数）-1）
+：\b[2]\_q\n\nID: OnMahjong（loop,showRef,0,（Rの数）-1）
+＞MJ.Main	（compare,（R0）,（MJ.Version））
 ＠showRef
 \nReference（showRefカウンタ）: （R（showRefカウンタ））
 
