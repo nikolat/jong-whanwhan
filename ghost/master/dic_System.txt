@@ -40,13 +40,13 @@
 ：（１）…。
 
 ＊OnUpdateBegin
-：（６）…。
-＊OnUpdateComplete
-：（０）…。
-＊OnUpdateFailure
-：（３）…。
+：（６）\_qUpdate Begin.\_q
 ＊OnUpdateReady
-：（５）…。
+：（５）\_qUpdating...\_q
+＊OnUpdateComplete
+：（０）\_q（Ｒ０）.\_q
+＊OnUpdateFailure
+：（３）\_q（Ｒ０）.\_q
 
 ＊sakura.recommendsites
 satoriya-shiori
