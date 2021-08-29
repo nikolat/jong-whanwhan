@@ -226,24 +226,24 @@ OnMahjongResponse
 ＞MJ.say自分（R3）
 
 ＊MJ.say自分chi
-：チー（aqtk,PLAYASYNC,ち'ー）\_w[2000]
+：チー（aqtk,PLAYASYNC,ち'ー）
 ＊MJ.say自分pon
-：ポン（aqtk,PLAYASYNC,ぽ'ん）\_w[2000]
+：ポン（aqtk,PLAYASYNC,ぽ'ん）
 ＊MJ.say自分kan
-：カン（aqtk,PLAYASYNC,か'ん）\_w[2000]
+：カン（aqtk,PLAYASYNC,か'ん）
 ＊MJ.say自分ron
-：（６）ロン（aqtk,PLAYASYNC,ろ'ん）\_w[2000]
+：（６）ロン（aqtk,PLAYASYNC,ろ'ん）
 ＊MJ.say自分tsumo
-：（６）ツモ（aqtk,PLAYASYNC,つ'も）\_w[2000]
+：（６）ツモ（aqtk,PLAYASYNC,つ'も）
 ＊MJ.say自分richi
-：（６）リーチ（aqtk,PLAYASYNC,り'ーち）\_w[2000]
+：（６）リーチ（aqtk,PLAYASYNC,り'ーち）
 ＊MJ.say自分tenpai
-：（６）テンパイ（aqtk,PLAYASYNC,て'んぱい）\_w[2000]
+：（６）テンパイ（aqtk,PLAYASYNC,て'んぱい）
 ＊MJ.say自分noten
-：（６）ノーテン（aqtk,PLAYASYNC,の'ーてん）\_w[2000]
+：（６）ノーテン（aqtk,PLAYASYNC,の'ーてん）
 
 ＊MJ.say他人richi
-：\w9\w9（choice,（２）,（３）,（７））！\_w[2000]
+：\w9\w9（choice,（２）,（３）,（７））！
 
 ＃----------------------------------------------------------
 ＃ agari あがり
