@@ -211,7 +211,9 @@ OnMahjongResponse
 ＃ tenpai? テンパイを宣言するか尋ねる
 ＃----------------------------------------------------------
 ＊MJ.tenpai?
-\![raiseother,（Sender）,（MJ.ResponseEventID）,（MJ.Version）,（R1）,yes]
+＃コマンドを送らないことでサーバーに対応を委任する
+\![raiseother,（Sender）,（MJ.ResponseEventID）,（MJ.Version）,（R1）,]
+＃\![raiseother,（Sender）,（MJ.ResponseEventID）,（MJ.Version）,（R1）,yes]
 
 ＃----------------------------------------------------------
 ＃ say 発声
