@@ -46,7 +46,8 @@ OnMahjongResponse
 ＃ hello 接続確認
 ＃----------------------------------------------------------
 ＊MJ.hello
-\![raiseother,（Sender）,（MJ.ResponseEventID）,（MJ.Version）,（R1）,ump=（ump_version）,name=（FMO0name）]
+（call,MJ.SendResponse,（R1）,ump=（ump_version）,name=（FMO0name））
+
 ＠ump_version
 ?
 
@@ -165,7 +166,7 @@ OnMahjongResponse
 ＊MJ.sutehai自分
 ＞MJ.ツモ切り	（compare,（R3）,（MJ.自摸牌））
 ＄MJ.自摸牌	
-＞MJ.ツモポロリ	!（count,（Status）,talking） && !（乱数0～4）
+＞MJ.手出しポロリ	!（count,（Status）,talking） && !（乱数0～4）
 
 ＊MJ.ツモ切り
 ＄MJ.自摸牌	
@@ -173,7 +174,7 @@ OnMahjongResponse
 
 ＃ 他家（ユーザ）に悟られることは自分が不利になること。
 ＃ でもゴーストにはそれくらいの「可愛らしさ」があってもよい。
-＊MJ.ツモポロリ
+＊MJ.手出しポロリ
 ：（choice,（５）,（８））…。
 ＊MJ.ツモ切りポロリ
 ：（choice,（３）,（４））…。
@@ -183,7 +184,7 @@ OnMahjongResponse
 ＃----------------------------------------------------------
 ＊MJ.sutehai?
 ＃コマンドを送らないことでサーバーに対応を委任する
-\![raiseother,（Sender）,（MJ.ResponseEventID）,（MJ.Version）,（R1）,]
+（call,MJ.SendResponse,（R1）,）
 
 ＃----------------------------------------------------------
 ＃ naku? 牌を鳴くか尋ねる。クライアントが可能なコマンドも送る
@@ -192,8 +193,8 @@ OnMahjongResponse
 ＃----------------------------------------------------------
 ＊MJ.naku?
 ＃コマンドを送らないことでサーバーに対応を委任する
-\![raiseother,（Sender）,（MJ.ResponseEventID）,（MJ.Version）,（R1）,]
-＃\![raiseother,（Sender）,（MJ.ResponseEventID）,（MJ.Version）,（R1）,（if,（MJ.can_ron）,ron,no）]
+（call,MJ.SendResponse,（R1）,）
+＃（call,MJ.SendResponse,（R1）,（if,（MJ.can_ron）,ron,no））
 
 ＠MJ.can_ron
 （set,MJ.tmp_can_ron,0）（loop,MJ.search_ron,2,（Rの数）-1）（MJ.tmp_can_ron）（set,MJ.tmp_can_ron,）
@@ -212,8 +213,8 @@ OnMahjongResponse
 ＃----------------------------------------------------------
 ＊MJ.tenpai?
 ＃コマンドを送らないことでサーバーに対応を委任する
-\![raiseother,（Sender）,（MJ.ResponseEventID）,（MJ.Version）,（R1）,]
-＃\![raiseother,（Sender）,（MJ.ResponseEventID）,（MJ.Version）,（R1）,yes]
+（call,MJ.SendResponse,（R1）,）
+＃（call,MJ.SendResponse,（R1）,yes）
 
 ＃----------------------------------------------------------
 ＃ say 発声
@@ -262,3 +263,40 @@ OnMahjongResponse
 ＊MJ.ryukyoku
 ＄MJ.状態	流局
 
+＃==========================================================
+＃ utility
+＃==========================================================
+＠MJ.SendResponse
+（
+	（
+		if
+		（バイト値,1）（call,MJ.IsSSTP）
+		（バイト値,1）MJ.SendResponseSSTP
+		（バイト値,1）MJ.SendResponseRaiseother
+	）
+）
+
+＠MJ.SendResponseSSTP
+（set,返信ヘッダ「X-SSTP-PassThru-ID」,（MJ.ResponseEventID））φ
+（set,返信ヘッダ「X-SSTP-PassThru-Reference0」,（MJ.Version））φ
+（loop,MJ.SendResponseSSTPLoop,0,（Ａの数）-1）
+＠MJ.SendResponseSSTPLoop
+（set,返信ヘッダ「X-SSTP-PassThru-Reference（calc,（MJ.SendResponseSSTPLoopカウンタ）+1）」,（Ａ（MJ.SendResponseSSTPLoopカウンタ）））
+
+＠MJ.SendResponseRaiseother
+\![raiseother,（Sender）,（MJ.ResponseEventID）,（MJ.Version）（loop,MJ.SendResponseRaiseotherLoop,0,（Ａの数）-1）]
+＠MJ.SendResponseRaiseotherLoop
+,（Ａ（MJ.SendResponseRaiseotherLoopカウンタ））
+
+＠MJ.IsSSTP
+（nop,（split（バイト値,1）（SenderType）（バイト値,1）,））φ
+（set,MJ.R,0）（loop,MJ.IsSSTPLoop,0,（Ｓの数）-1）（MJ.R）（set,MJ.R,）
+＠MJ.IsSSTPLoop
+（
+	（
+		if
+		,（Ｓ（MJ.IsSSTPLoopカウンタ））==sstp
+		,set（バイト値,1）MJ.R（バイト値,1）1
+		,nop（バイト値,1）
+	）
+）
