@@ -229,30 +229,41 @@ OnMahjongResponse
 ＞MJ.say自分（R3）
 
 ＊MJ.say自分chi
-：チー（aqtk,PLAYASYNC,ち'ー）
+：チー（call,MJ.ExecAqtk,ち'ー）
 ＊MJ.say自分pon
-：ポン（aqtk,PLAYASYNC,ぽ'ん）
+：ポン（call,MJ.ExecAqtk,ぽ'ん）
 ＊MJ.say自分kan
-：カン（aqtk,PLAYASYNC,か'ん）
+：カン（call,MJ.ExecAqtk,か'ん）
 ＊MJ.say自分ron
-：（６）ロン（aqtk,PLAYASYNC,ろ'ん）
+：（６）ロン（call,MJ.ExecAqtk,ろ'ん）
 ＊MJ.say自分tsumo
-：（６）ツモ（aqtk,PLAYASYNC,つ'も）
+：（６）ツモ（call,MJ.ExecAqtk,つ'も）
 ＊MJ.say自分richi
-：（６）リーチ（aqtk,PLAYASYNC,り'ーち）
+：（６）リーチ（call,MJ.ExecAqtk,り'ーち）
 ＊MJ.say自分tenpai
-：（６）テンパイ（aqtk,PLAYASYNC,て'んぱい）
+：（６）テンパイ（call,MJ.ExecAqtk,て'んぱい）
 ＊MJ.say自分noten
-：（６）ノーテン（aqtk,PLAYASYNC,の'ーてん）
+：（６）ノーテン（call,MJ.ExecAqtk,の'ーてん）
 
 ＊MJ.say他人richi
 ：\w9\w9（choice,（２）,（３）,（７））！
 
+＠MJ.ExecAqtk
+（
+	（
+		if
+		,（MJ.IsSoundEnabled）
+		,aqtk、PLAYASYNC、（A0）
+		,nop、
+	）
+）
+
 ＃----------------------------------------------------------
 ＃ agari あがり
 ＃ Reference2: プレイヤー名
-＃ Reference3: Reserved(符)
-＃ Reference4: Reserved(役,ハン数)
+＃ Reference3: 符
+＃ Reference4: 役,ハン数
+＃ Reference5: 以降、Reference4同様
 ＃----------------------------------------------------------
 ＊MJ.agari
 ＄MJ.状態	和了
@@ -270,9 +281,9 @@ OnMahjongResponse
 （
 	（
 		if
-		（バイト値,1）（call,MJ.IsSSTP）
-		（バイト値,1）MJ.SendResponseSSTP
-		（バイト値,1）MJ.SendResponseRaiseother
+		,（MJ.IsSSTP）
+		,MJ.SendResponseSSTP
+		,MJ.SendResponseRaiseother
 	）
 ）
 
@@ -300,3 +311,25 @@ OnMahjongResponse
 		,nop（バイト値,1）
 	）
 ）
+
+＃==========================================================
+＃ Sound
+＃==========================================================
+＠MJ.SoundDefault
+1
+＠MJ.IsSoundEnabled
+（
+	if
+	,（変数「MJ.Sound」の存在）
+	,（MJ.Sound）
+	,（MJ.SoundDefault）
+）
+＊mが押された
+（
+	（
+		if
+		,（変数「MJ.Sound」の存在）
+		,set、MJ.Sound、（calc,!（MJ.Sound））
+		,set、MJ.Sound、（calc,!（MJ.SoundDefault））
+	）
+）\0\_qSound: （if,（MJ.Sound）,ON,OFF）\_q
