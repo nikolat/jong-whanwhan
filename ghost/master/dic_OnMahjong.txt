@@ -164,20 +164,26 @@ OnMahjongResponse
 ＞MJ.sutehai自分	（compare,（R2）,（FMO0name））
 
 ＊MJ.sutehai自分
+＞MJ.副露後	!（変数「MJ.自摸牌」の存在）
 ＞MJ.ツモ切り	（compare,（R3）,（MJ.自摸牌））
-＄MJ.自摸牌	
-＞MJ.手出しポロリ	!（count,（Status）,talking） && !（乱数0～4）
+＞MJ.手出し
+
+＊MJ.副露後
 
 ＊MJ.ツモ切り
 ＄MJ.自摸牌	
 ＞MJ.ツモ切りポロリ	!（count,（Status）,talking） && !（乱数0～4）
 
+＊MJ.手出し
+＄MJ.自摸牌	
+＞MJ.手出しポロリ	!（count,（Status）,talking） && !（乱数0～4）
+
 ＃ 他家（ユーザ）に悟られることは自分が不利になること。
 ＃ でもゴーストにはそれくらいの「可愛らしさ」があってもよい。
-＊MJ.手出しポロリ
-：（choice,（５）,（８））…。
 ＊MJ.ツモ切りポロリ
 ：（choice,（３）,（４））…。
+＊MJ.手出しポロリ
+：（choice,（５）,（８））…。
 
 ＃----------------------------------------------------------
 ＃ sutehai? 捨牌を尋ねる
