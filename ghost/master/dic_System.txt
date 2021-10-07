@@ -1,60 +1,60 @@
 
-–‹N“®
-FcB
+ï¼Šèµ·å‹•
+ï¼šâ€¦ã€‚
 
-–I—¹
-FcB\_w[500]
+ï¼Šçµ‚äº†
+ï¼šâ€¦ã€‚\_w[500]
 
-–OnKeyPress
-„i‚q‚Oj‚ª‰Ÿ‚³‚ê‚½
+ï¼ŠOnKeyPress
+ï¼ï¼ˆï¼²ï¼ï¼‰ãŒæŠ¼ã•ã‚ŒãŸ
 
-–r‚ª‰Ÿ‚³‚ê‚½
-«‘ƒŠƒ[ƒh	Às
-F«‘ƒŠƒ[ƒhcB
+ï¼ŠrãŒæŠ¼ã•ã‚ŒãŸ
+ï¼„è¾æ›¸ãƒªãƒ­ãƒ¼ãƒ‰	å®Ÿè¡Œ
+ï¼šè¾æ›¸ãƒªãƒ­ãƒ¼ãƒ‰â€¦ã€‚
 
-–0Head‚È‚Å‚ç‚ê
-Fi‚TjcB
+ï¼Š0Headãªã§ã‚‰ã‚Œ
+ï¼šï¼ˆï¼•ï¼‰â€¦ã€‚
 
-–0Face‚È‚Å‚ç‚ê
-Fi‚UjcH
+ï¼Š0Faceãªã§ã‚‰ã‚Œ
+ï¼šï¼ˆï¼–ï¼‰â€¦ï¼Ÿ
 
-–0Bust‚È‚Å‚ç‚ê
-Fi‚PjcB
+ï¼Š0Bustãªã§ã‚‰ã‚Œ
+ï¼šï¼ˆï¼‘ï¼‰â€¦ã€‚
 
-–0‚Â‚Â‚©‚ê
-Fi‚Oj‰½cH
-–0‚Â‚Â‚©‚ê
-Fi‚Rj‹­‚­‚È‚è‚½‚¢cB
-–0‚Â‚Â‚©‚ê
-Fi‚Sjƒhƒ‰‚Í‰½ˆ‚ÉcB
-–0‚Â‚Â‚©‚ê
-Fi‚UjW’†cW’†cB
+ï¼Š0ã¤ã¤ã‹ã‚Œ
+ï¼šï¼ˆï¼ï¼‰ä½•â€¦ï¼Ÿ
+ï¼Š0ã¤ã¤ã‹ã‚Œ
+ï¼šï¼ˆï¼“ï¼‰å¼·ããªã‚ŠãŸã„â€¦ã€‚
+ï¼Š0ã¤ã¤ã‹ã‚Œ
+ï¼šï¼ˆï¼”ï¼‰ãƒ‰ãƒ©ã¯ä½•å‡¦ã«â€¦ã€‚
+ï¼Š0ã¤ã¤ã‹ã‚Œ
+ï¼šï¼ˆï¼–ï¼‰é›†ä¸­â€¦é›†ä¸­â€¦ã€‚
 
-–0Head‚Â‚Â‚©‚ê
-Fi‚RjcB
+ï¼Š0Headã¤ã¤ã‹ã‚Œ
+ï¼šï¼ˆï¼“ï¼‰â€¦ã€‚
 
-–0Face‚Â‚Â‚©‚ê
-Fi‚SjcB
+ï¼Š0Faceã¤ã¤ã‹ã‚Œ
+ï¼šï¼ˆï¼”ï¼‰â€¦ã€‚
 
-–0Bust‚Â‚Â‚©‚ê
-Fi‚PjcB
+ï¼Š0Bustã¤ã¤ã‹ã‚Œ
+ï¼šï¼ˆï¼‘ï¼‰â€¦ã€‚
 
-–OnUpdateBegin
-Fi‚Uj\_qUpdate Begin.\_q
-–OnUpdateReady
-Fi‚Tj\_qUpdating...\_q
-–OnUpdateComplete
-Fi‚Oj\_qi‚q‚Oj.\_q
-–OnUpdateFailure
-Fi‚Rj\_qi‚q‚Oj.\_q
+ï¼ŠOnUpdateBegin
+ï¼šï¼ˆï¼–ï¼‰\_qUpdate Begin.\_q
+ï¼ŠOnUpdateReady
+ï¼šï¼ˆï¼•ï¼‰\_qUpdating...\_q
+ï¼ŠOnUpdateComplete
+ï¼šï¼ˆï¼ï¼‰\_qï¼ˆï¼²ï¼ï¼‰.\_q
+ï¼ŠOnUpdateFailure
+ï¼šï¼ˆï¼“ï¼‰\_qï¼ˆï¼²ï¼ï¼‰.\_q
 
-–sakura.recommendsites
+ï¼Šsakura.recommendsites
 satoriya-shiori
 https://github.com/ponapalt/satoriya-shiori/wiki
 
-–sakura.portalsites
+ï¼Šsakura.portalsites
 Disc-2
 http://disc2.s56.xrea.com/
 
-—homeurl
+ï¼ homeurl
 https://raw.githubusercontent.com/nikolat/jong-whanwhan/main/

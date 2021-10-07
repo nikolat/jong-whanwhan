@@ -1,341 +1,341 @@
-”==========================================================
-” LICENSE: CC0 1.0 Universal
-” http://creativecommons.org/publicdomain/zero/1.0/
-”==========================================================
+ï¼ƒ==========================================================
+ï¼ƒ LICENSE: CC0 1.0 Universal
+ï¼ƒ http://creativecommons.org/publicdomain/zero/1.0/
+ï¼ƒ==========================================================
 
-”==========================================================
-” İ’è
-”==========================================================
-”ƒo[ƒWƒ‡ƒ“
-—MJ.Version
+ï¼ƒ==========================================================
+ï¼ƒ è¨­å®š
+ï¼ƒ==========================================================
+ï¼ƒãƒãƒ¼ã‚¸ãƒ§ãƒ³
+ï¼ MJ.Version
 UKAJONG/0.2
-”•Ô“š‚ÌƒCƒxƒ“ƒg–¼
-—MJ.ResponseEventID
+ï¼ƒè¿”ç­”æ™‚ã®ã‚¤ãƒ™ãƒ³ãƒˆå
+ï¼ MJ.ResponseEventID
 OnMahjongResponse
-”ƒCƒxƒ“ƒgƒƒO‚ğ‚¾‚ç‚¾‚çŒ©‚éƒ‚[ƒh
-—MJ.ShowAllLogMode
+ï¼ƒã‚¤ãƒ™ãƒ³ãƒˆãƒ­ã‚°ã‚’ã ã‚‰ã ã‚‰è¦‹ã‚‹ãƒ¢ãƒ¼ãƒ‰
+ï¼ MJ.ShowAllLogMode
 0
 
-”==========================================================
-” ID: OnMahjong
-” Reference0: ƒo[ƒWƒ‡ƒ“(UKAJONG/0.2)
-” Reference1: ƒT[ƒoƒRƒ}ƒ“ƒh(gamestart|gameend|...)
-” Reference2ˆÈ~: ƒT[ƒoƒRƒ}ƒ“ƒh’Ç‰Áî•ñ
-”==========================================================
-–OnMahjong
-„MJ.ƒCƒxƒ“ƒgƒƒO‚‚ê—¬‚µ	iMJ.ShowAllLogModej
-„MJ.Main	icompare,iR0j,iMJ.Versionjj
+ï¼ƒ==========================================================
+ï¼ƒ ID: OnMahjong
+ï¼ƒ Reference0: ãƒãƒ¼ã‚¸ãƒ§ãƒ³(UKAJONG/0.2)
+ï¼ƒ Reference1: ã‚µãƒ¼ãƒã‚³ãƒãƒ³ãƒ‰(gamestart|gameend|...)
+ï¼ƒ Reference2ä»¥é™: ã‚µãƒ¼ãƒã‚³ãƒãƒ³ãƒ‰è¿½åŠ æƒ…å ±
+ï¼ƒ==========================================================
+ï¼ŠOnMahjong
+ï¼MJ.ã‚¤ãƒ™ãƒ³ãƒˆãƒ­ã‚°å‚ã‚Œæµã—	ï¼ˆMJ.ShowAllLogModeï¼‰
+ï¼MJ.Main	ï¼ˆcompare,ï¼ˆR0ï¼‰,ï¼ˆMJ.Versionï¼‰ï¼‰
 
-”==========================================================
-” ƒCƒxƒ“ƒgƒƒO‚‚ê—¬‚µ
-”==========================================================
-–MJ.ƒCƒxƒ“ƒgƒƒO‚‚ê—¬‚µ
-ƒXƒNƒŠƒvƒg‚Ìˆê”Ô“ª	\C
-F\b[2]\_q\n\nID: OnMahjongiloop,showRef,0,iR‚Ì”j-1j
-„MJ.Main	icompare,iR0j,iMJ.Versionjj
-—showRef
-\nReferenceishowRefƒJƒEƒ“ƒ^j: iRishowRefƒJƒEƒ“ƒ^jj
+ï¼ƒ==========================================================
+ï¼ƒ ã‚¤ãƒ™ãƒ³ãƒˆãƒ­ã‚°å‚ã‚Œæµã—
+ï¼ƒ==========================================================
+ï¼ŠMJ.ã‚¤ãƒ™ãƒ³ãƒˆãƒ­ã‚°å‚ã‚Œæµã—
+ï¼„ã‚¹ã‚¯ãƒªãƒ—ãƒˆã®ä¸€ç•ªé ­	\C
+ï¼š\b[2]\_q\n\nID: OnMahjongï¼ˆloop,showRef,0,ï¼ˆRã®æ•°ï¼‰-1ï¼‰
+ï¼MJ.Main	ï¼ˆcompare,ï¼ˆR0ï¼‰,ï¼ˆMJ.Versionï¼‰ï¼‰
+ï¼ showRef
+\nReferenceï¼ˆshowRefã‚«ã‚¦ãƒ³ã‚¿ï¼‰: ï¼ˆRï¼ˆshowRefã‚«ã‚¦ãƒ³ã‚¿ï¼‰ï¼‰
 
-”==========================================================
-” ƒƒCƒ“ˆ—
-”==========================================================
-–MJ.Main
-„MJ.iR1j
+ï¼ƒ==========================================================
+ï¼ƒ ãƒ¡ã‚¤ãƒ³å‡¦ç†
+ï¼ƒ==========================================================
+ï¼ŠMJ.Main
+ï¼MJ.ï¼ˆR1ï¼‰
 
-”----------------------------------------------------------
-” hello Ú‘±Šm”F
-”----------------------------------------------------------
-–MJ.hello
-icall,MJ.SendResponse,iR1j,ump=iump_versionj,name=iFMO0namejj
+ï¼ƒ----------------------------------------------------------
+ï¼ƒ hello æ¥ç¶šç¢ºèª
+ï¼ƒ----------------------------------------------------------
+ï¼ŠMJ.hello
+ï¼ˆcall,MJ.SendResponse,ï¼ˆR1ï¼‰,ump=ï¼ˆump_versionï¼‰,name=ï¼ˆFMO0nameï¼‰ï¼‰
 
-—ump_version
+ï¼ ump_version
 ?
 
-”----------------------------------------------------------
-” gamestart ƒQ[ƒ€(”¼‘‘)ŠJn
-” Reference2: È(“Œ|“ì|¼|–k)
-” Reference3: ƒvƒŒƒCƒ„[–¼1
-” Reference4: ƒvƒŒƒCƒ„[–¼2
-” Reference5: ƒvƒŒƒCƒ„[–¼3
-” Reference6: ƒvƒŒƒCƒ„[–¼4
-”----------------------------------------------------------
-–MJ.gamestart
-Fi‚Oj‚æ‚ë‚µ‚­cB
-–MJ.gamestart
-Fi‚Vjâ‘Î•‰‚¯‚È‚¢cB
+ï¼ƒ----------------------------------------------------------
+ï¼ƒ gamestart ã‚²ãƒ¼ãƒ (åŠè˜)é–‹å§‹
+ï¼ƒ Reference2: å¸­(æ±|å—|è¥¿|åŒ—)
+ï¼ƒ Reference3: ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼å1
+ï¼ƒ Reference4: ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼å2
+ï¼ƒ Reference5: ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼å3
+ï¼ƒ Reference6: ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼å4
+ï¼ƒ----------------------------------------------------------
+ï¼ŠMJ.gamestart
+ï¼šï¼ˆï¼ï¼‰ã‚ˆã‚ã—ãâ€¦ã€‚
+ï¼ŠMJ.gamestart
+ï¼šï¼ˆï¼—ï¼‰çµ¶å¯¾è² ã‘ãªã„â€¦ã€‚
 
-”----------------------------------------------------------
-” gameend ƒQ[ƒ€I—¹
-” Reference2: ƒvƒŒƒCƒ„[–¼1iƒoƒCƒg’l,1j“_”
-” Reference3: ƒvƒŒƒCƒ„[–¼2iƒoƒCƒg’l,1j“_”
-” Reference4: ƒvƒŒƒCƒ„[–¼3iƒoƒCƒg’l,1j“_”
-” Reference5: ƒvƒŒƒCƒ„[–¼4iƒoƒCƒg’l,1j“_”
-”----------------------------------------------------------
-–MJ.gameend
-FcB
+ï¼ƒ----------------------------------------------------------
+ï¼ƒ gameend ã‚²ãƒ¼ãƒ çµ‚äº†
+ï¼ƒ Reference2: ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼å1ï¼ˆãƒã‚¤ãƒˆå€¤,1ï¼‰ç‚¹æ•°
+ï¼ƒ Reference3: ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼å2ï¼ˆãƒã‚¤ãƒˆå€¤,1ï¼‰ç‚¹æ•°
+ï¼ƒ Reference4: ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼å3ï¼ˆãƒã‚¤ãƒˆå€¤,1ï¼‰ç‚¹æ•°
+ï¼ƒ Reference5: ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼å4ï¼ˆãƒã‚¤ãƒˆå€¤,1ï¼‰ç‚¹æ•°
+ï¼ƒ----------------------------------------------------------
+ï¼ŠMJ.gameend
+ï¼šâ€¦ã€‚
 
-”----------------------------------------------------------
-” kyokustart ˆê‹Ç‚ªn‚Ü‚é‚Æ‚«‚É‘—‚é
-” Reference2: ê•—(“Œ|“ì|¼|–k)
-” Reference3: e(ex.ƒvƒŒƒCƒ„[–¼1)
-” Reference4: –{ê(ex.1)
-” Reference5: ‹Ÿ‘õ(ex.1000)
-”----------------------------------------------------------
-–MJ.kyokustart
-Fi‚Oj
+ï¼ƒ----------------------------------------------------------
+ï¼ƒ kyokustart ä¸€å±€ãŒå§‹ã¾ã‚‹ã¨ãã«é€ã‚‹
+ï¼ƒ Reference2: å ´é¢¨(æ±|å—|è¥¿|åŒ—)
+ï¼ƒ Reference3: è¦ª(ex.ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼å1)
+ï¼ƒ Reference4: æœ¬å ´(ex.1)
+ï¼ƒ Reference5: ä¾›è¨—(ex.1000)
+ï¼ƒ----------------------------------------------------------
+ï¼ŠMJ.kyokustart
+ï¼šï¼ˆï¼ï¼‰
 
-”----------------------------------------------------------
-” kyokuend ˆê‹ÇI—¹
-”----------------------------------------------------------
-–MJ.kyokuend
-„MJ.•\î–ß‚µ	!icount,iStatusj,talkingj
+ï¼ƒ----------------------------------------------------------
+ï¼ƒ kyokuend ä¸€å±€çµ‚äº†
+ï¼ƒ----------------------------------------------------------
+ï¼ŠMJ.kyokuend
+ï¼MJ.è¡¨æƒ…æˆ»ã—	!ï¼ˆcount,ï¼ˆStatusï¼‰,talkingï¼‰
 
-–MJ.•\î–ß‚µ
-Fi‚Oj
+ï¼ŠMJ.è¡¨æƒ…æˆ»ã—
+ï¼šï¼ˆï¼ï¼‰
 
-”----------------------------------------------------------
-” point ƒvƒŒƒCƒ„[‚Ì“_”‚ğ’Ê’m‚·‚é
-” Reference2: ƒvƒŒƒCƒ„[–¼
-” Reference3: (=|+|-) =‚Í“_”‚Ì’¼w’èA+-‚Í‘Œ¸‚ğˆÓ–¡‚·‚é
-” Reference4: “_”
-”----------------------------------------------------------
-–MJ.point
-„MJ.point©•ª	icompare,iR2j,iFMO0namejj
+ï¼ƒ----------------------------------------------------------
+ï¼ƒ point ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ç‚¹æ•°ã‚’é€šçŸ¥ã™ã‚‹
+ï¼ƒ Reference2: ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼å
+ï¼ƒ Reference3: (=|+|-) =ã¯ç‚¹æ•°ã®ç›´æŒ‡å®šã€+-ã¯å¢—æ¸›ã‚’æ„å‘³ã™ã‚‹
+ï¼ƒ Reference4: ç‚¹æ•°
+ï¼ƒ----------------------------------------------------------
+ï¼ŠMJ.point
+ï¼MJ.pointè‡ªåˆ†	ï¼ˆcompare,ï¼ˆR2ï¼‰,ï¼ˆFMO0nameï¼‰ï¼‰
 
-–MJ.point©•ª
-„MJ.pointiMJ.ó‘Ôj
-MJ.ó‘Ô	
+ï¼ŠMJ.pointè‡ªåˆ†
+ï¼MJ.pointï¼ˆMJ.çŠ¶æ…‹ï¼‰
+ï¼„MJ.çŠ¶æ…‹	
 
-”—¬‹Ç‚Å‚ÍˆêX’‚ç‚È‚¢
-–MJ.point˜a—¹
-„MJ.point©•ªŒ»“_”	icompare,iR3j,=j
-MJ.ó‘Ô	
-„MJ.point©•ªƒvƒ‰ƒX	icompare,iR3j,+j
-„MJ.point©•ªƒ}ƒCƒiƒX	icompare,iR3j,-j
+ï¼ƒæµå±€ã§ã¯ä¸€ã€…å–‹ã‚‰ãªã„
+ï¼ŠMJ.pointå’Œäº†
+ï¼MJ.pointè‡ªåˆ†ç¾ç‚¹æ•°	ï¼ˆcompare,ï¼ˆR3ï¼‰,=ï¼‰
+ï¼„MJ.çŠ¶æ…‹	
+ï¼MJ.pointè‡ªåˆ†ãƒ—ãƒ©ã‚¹	ï¼ˆcompare,ï¼ˆR3ï¼‰,+ï¼‰
+ï¼MJ.pointè‡ªåˆ†ãƒã‚¤ãƒŠã‚¹	ï¼ˆcompare,ï¼ˆR3ï¼‰,-ï¼‰
 
-–MJ.point©•ªŒ»“_”
+ï¼ŠMJ.pointè‡ªåˆ†ç¾ç‚¹æ•°
 
-–MJ.point©•ªƒvƒ‰ƒX
-Fichoice,i‚Tj,i‚WjjcƒtƒtƒbB
+ï¼ŠMJ.pointè‡ªåˆ†ãƒ—ãƒ©ã‚¹
+ï¼šï¼ˆchoice,ï¼ˆï¼•ï¼‰,ï¼ˆï¼˜ï¼‰ï¼‰â€¦ãƒ•ãƒ•ãƒƒã€‚
 
-–MJ.point©•ªƒ}ƒCƒiƒX
-„MJ.point©•ªƒ}ƒCƒiƒX‘å	8000<=iR4j
-Fichoice,i‚Rj,i‚SjjcB
+ï¼ŠMJ.pointè‡ªåˆ†ãƒã‚¤ãƒŠã‚¹
+ï¼MJ.pointè‡ªåˆ†ãƒã‚¤ãƒŠã‚¹å¤§	8000<=ï¼ˆR4ï¼‰
+ï¼šï¼ˆchoice,ï¼ˆï¼“ï¼‰,ï¼ˆï¼”ï¼‰ï¼‰â€¦ã€‚
 
-–MJ.point©•ªƒ}ƒCƒiƒX‘å
-Fi‚Vj‹–‚³‚È‚¢cB
+ï¼ŠMJ.pointè‡ªåˆ†ãƒã‚¤ãƒŠã‚¹å¤§
+ï¼šï¼ˆï¼—ï¼‰è¨±ã•ãªã„â€¦ã€‚
 
-”----------------------------------------------------------
-” haipai ”z”v‚ğ”z‚é
-” Reference2: ƒvƒŒƒCƒ„[–¼
-” Reference3: ”z”v(ex.1m2m3m4p5p6p7s8s9s1z5z6z7z)
-”----------------------------------------------------------
-–MJ.haipai
+ï¼ƒ----------------------------------------------------------
+ï¼ƒ haipai é…ç‰Œã‚’é…ã‚‹
+ï¼ƒ Reference2: ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼å
+ï¼ƒ Reference3: é…ç‰Œ(ex.1m2m3m4p5p6p7s8s9s1z5z6z7z)
+ï¼ƒ----------------------------------------------------------
+ï¼ŠMJ.haipai
 
-”----------------------------------------------------------
-” dora ƒhƒ‰•\¦”v‚ğ‘—‚é
-” Reference2: ”v(ex.7z)
-”----------------------------------------------------------
-–MJ.dora
+ï¼ƒ----------------------------------------------------------
+ï¼ƒ dora ãƒ‰ãƒ©è¡¨ç¤ºç‰Œã‚’é€ã‚‹
+ï¼ƒ Reference2: ç‰Œ(ex.7z)
+ï¼ƒ----------------------------------------------------------
+ï¼ŠMJ.dora
 
-”----------------------------------------------------------
-” open è”v‚ğŒöŠJ‚·‚é(ƒ`[Aƒ|ƒ“AƒJƒ“)
-” Reference2: ƒvƒŒƒCƒ„[–¼
-” Reference3: ”v(ex.1p2p3p)
-”----------------------------------------------------------
-–MJ.open
+ï¼ƒ----------------------------------------------------------
+ï¼ƒ open æ‰‹ç‰Œã‚’å…¬é–‹ã™ã‚‹(ãƒãƒ¼ã€ãƒãƒ³ã€ã‚«ãƒ³)
+ï¼ƒ Reference2: ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼å
+ï¼ƒ Reference3: ç‰Œ(ex.1p2p3p)
+ï¼ƒ----------------------------------------------------------
+ï¼ŠMJ.open
 
-”----------------------------------------------------------
-” tsumo ©–Ì
-” Reference2: ƒvƒŒƒCƒ„[–¼(©•ª)
-” Reference3: c‚è–‡”
-” Reference4: ”v(ex.7z)
-”----------------------------------------------------------
-–MJ.tsumo
-MJ.©–Ì”v	iR4j
-„MJ.•\î–ß‚µ	!icount,iStatusj,talkingj
+ï¼ƒ----------------------------------------------------------
+ï¼ƒ tsumo è‡ªæ‘¸
+ï¼ƒ Reference2: ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼å(è‡ªåˆ†)
+ï¼ƒ Reference3: æ®‹ã‚Šæšæ•°
+ï¼ƒ Reference4: ç‰Œ(ex.7z)
+ï¼ƒ----------------------------------------------------------
+ï¼ŠMJ.tsumo
+ï¼„MJ.è‡ªæ‘¸ç‰Œ	ï¼ˆR4ï¼‰
+ï¼MJ.è¡¨æƒ…æˆ»ã—	!ï¼ˆcount,ï¼ˆStatusï¼‰,talkingï¼‰
 
-”----------------------------------------------------------
-” sutehai Ì”v
-” Reference2: ƒvƒŒƒCƒ„[–¼
-” Reference3: ”v(ex.7z)
-”----------------------------------------------------------
-–MJ.sutehai
-„MJ.sutehai©•ª	icompare,iR2j,iFMO0namejj
+ï¼ƒ----------------------------------------------------------
+ï¼ƒ sutehai æ¨ç‰Œ
+ï¼ƒ Reference2: ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼å
+ï¼ƒ Reference3: ç‰Œ(ex.7z)
+ï¼ƒ----------------------------------------------------------
+ï¼ŠMJ.sutehai
+ï¼MJ.sutehaiè‡ªåˆ†	ï¼ˆcompare,ï¼ˆR2ï¼‰,ï¼ˆFMO0nameï¼‰ï¼‰
 
-–MJ.sutehai©•ª
-„MJ.•›˜IŒã	!i•Ï”uMJ.©–Ì”vv‚Ì‘¶İj
-„MJ.ƒcƒ‚Ø‚è	icompare,iR3j,iMJ.©–Ì”vjj
-„MJ.èo‚µ
+ï¼ŠMJ.sutehaiè‡ªåˆ†
+ï¼MJ.å‰¯éœ²å¾Œ	!ï¼ˆå¤‰æ•°ã€ŒMJ.è‡ªæ‘¸ç‰Œã€ã®å­˜åœ¨ï¼‰
+ï¼MJ.ãƒ„ãƒ¢åˆ‡ã‚Š	ï¼ˆcompare,ï¼ˆR3ï¼‰,ï¼ˆMJ.è‡ªæ‘¸ç‰Œï¼‰ï¼‰
+ï¼MJ.æ‰‹å‡ºã—
 
-–MJ.•›˜IŒã
+ï¼ŠMJ.å‰¯éœ²å¾Œ
 
-–MJ.ƒcƒ‚Ø‚è
-MJ.©–Ì”v	
-„MJ.ƒcƒ‚Ø‚èƒ|ƒƒŠ	!icount,iStatusj,talkingj && !i—”0`4j
+ï¼ŠMJ.ãƒ„ãƒ¢åˆ‡ã‚Š
+ï¼„MJ.è‡ªæ‘¸ç‰Œ	
+ï¼MJ.ãƒ„ãƒ¢åˆ‡ã‚Šãƒãƒ­ãƒª	!ï¼ˆcount,ï¼ˆStatusï¼‰,talkingï¼‰ && !ï¼ˆä¹±æ•°0ï½4ï¼‰
 
-–MJ.èo‚µ
-MJ.©–Ì”v	
-„MJ.èo‚µƒ|ƒƒŠ	!icount,iStatusj,talkingj && !i—”0`4j
+ï¼ŠMJ.æ‰‹å‡ºã—
+ï¼„MJ.è‡ªæ‘¸ç‰Œ	
+ï¼MJ.æ‰‹å‡ºã—ãƒãƒ­ãƒª	!ï¼ˆcount,ï¼ˆStatusï¼‰,talkingï¼‰ && !ï¼ˆä¹±æ•°0ï½4ï¼‰
 
-” ‘¼‰Æiƒ†[ƒUj‚ÉŒå‚ç‚ê‚é‚±‚Æ‚Í©•ª‚ª•s—˜‚É‚È‚é‚±‚ÆB
-” ‚Å‚àƒS[ƒXƒg‚É‚Í‚»‚ê‚­‚ç‚¢‚Ìu‰Âˆ¤‚ç‚µ‚³v‚ª‚ ‚Á‚Ä‚à‚æ‚¢B
-–MJ.ƒcƒ‚Ø‚èƒ|ƒƒŠ
-Fichoice,i‚Rj,i‚SjjcB
-–MJ.èo‚µƒ|ƒƒŠ
-Fichoice,i‚Tj,i‚WjjcB
+ï¼ƒ ä»–å®¶ï¼ˆãƒ¦ãƒ¼ã‚¶ï¼‰ã«æ‚Ÿã‚‰ã‚Œã‚‹ã“ã¨ã¯è‡ªåˆ†ãŒä¸åˆ©ã«ãªã‚‹ã“ã¨ã€‚
+ï¼ƒ ã§ã‚‚ã‚´ãƒ¼ã‚¹ãƒˆã«ã¯ãã‚Œãã‚‰ã„ã®ã€Œå¯æ„›ã‚‰ã—ã•ã€ãŒã‚ã£ã¦ã‚‚ã‚ˆã„ã€‚
+ï¼ŠMJ.ãƒ„ãƒ¢åˆ‡ã‚Šãƒãƒ­ãƒª
+ï¼šï¼ˆchoice,ï¼ˆï¼“ï¼‰,ï¼ˆï¼”ï¼‰ï¼‰â€¦ã€‚
+ï¼ŠMJ.æ‰‹å‡ºã—ãƒãƒ­ãƒª
+ï¼šï¼ˆchoice,ï¼ˆï¼•ï¼‰,ï¼ˆï¼˜ï¼‰ï¼‰â€¦ã€‚
 
-”----------------------------------------------------------
-” sutehai? Ì”v‚ğq‚Ë‚é
-”----------------------------------------------------------
-–MJ.sutehai?
-”ƒRƒ}ƒ“ƒh‚ğ‘—‚ç‚È‚¢‚±‚Æ‚ÅƒT[ƒo[‚É‘Î‰‚ğˆÏ”C‚·‚é
-icall,MJ.SendResponse,iR1j,j
+ï¼ƒ----------------------------------------------------------
+ï¼ƒ sutehai? æ¨ç‰Œã‚’å°‹ã­ã‚‹
+ï¼ƒ----------------------------------------------------------
+ï¼ŠMJ.sutehai?
+ï¼ƒã‚³ãƒãƒ³ãƒ‰ã‚’é€ã‚‰ãªã„ã“ã¨ã§ã‚µãƒ¼ãƒãƒ¼ã«å¯¾å¿œã‚’å§”ä»»ã™ã‚‹
+ï¼ˆcall,MJ.SendResponse,ï¼ˆR1ï¼‰,ï¼‰
 
-”----------------------------------------------------------
-” naku? ”v‚ğ–Â‚­‚©q‚Ë‚éBƒNƒ‰ƒCƒAƒ“ƒg‚ª‰Â”\‚ÈƒRƒ}ƒ“ƒh‚à‘—‚é
-” Reference2: (ron|kan|pon|chi)
-” Reference3: ˆÈ~AReference2“¯—l
-”----------------------------------------------------------
-–MJ.naku?
-”ƒRƒ}ƒ“ƒh‚ğ‘—‚ç‚È‚¢‚±‚Æ‚ÅƒT[ƒo[‚É‘Î‰‚ğˆÏ”C‚·‚é
-icall,MJ.SendResponse,iR1j,j
-”icall,MJ.SendResponse,iR1j,iif,iMJ.can_ronj,ron,nojj
+ï¼ƒ----------------------------------------------------------
+ï¼ƒ naku? ç‰Œã‚’é³´ãã‹å°‹ã­ã‚‹ã€‚ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆãŒå¯èƒ½ãªã‚³ãƒãƒ³ãƒ‰ã‚‚é€ã‚‹
+ï¼ƒ Reference2: (ron|kan|pon|chi)
+ï¼ƒ Reference3: ä»¥é™ã€Reference2åŒæ§˜
+ï¼ƒ----------------------------------------------------------
+ï¼ŠMJ.naku?
+ï¼ƒã‚³ãƒãƒ³ãƒ‰ã‚’é€ã‚‰ãªã„ã“ã¨ã§ã‚µãƒ¼ãƒãƒ¼ã«å¯¾å¿œã‚’å§”ä»»ã™ã‚‹
+ï¼ˆcall,MJ.SendResponse,ï¼ˆR1ï¼‰,ï¼‰
+ï¼ƒï¼ˆcall,MJ.SendResponse,ï¼ˆR1ï¼‰,ï¼ˆif,ï¼ˆMJ.can_ronï¼‰,ron,noï¼‰ï¼‰
 
-—MJ.can_ron
-iset,MJ.tmp_can_ron,0jiloop,MJ.search_ron,2,iR‚Ì”j-1jiMJ.tmp_can_ronjiset,MJ.tmp_can_ron,j
-—MJ.search_ron
-i
+ï¼ MJ.can_ron
+ï¼ˆset,MJ.tmp_can_ron,0ï¼‰ï¼ˆloop,MJ.search_ron,2,ï¼ˆRã®æ•°ï¼‰-1ï¼‰ï¼ˆMJ.tmp_can_ronï¼‰ï¼ˆset,MJ.tmp_can_ron,ï¼‰
+ï¼ MJ.search_ron
+ï¼ˆ
 	set
 	,MJ.tmp_can_ron
-	,i
+	,ï¼ˆ
 		calc
-		,iMJ.tmp_can_ronj+iequal,iRiMJ.search_ronƒJƒEƒ“ƒ^jj,ronj
-	j
-j
+		,ï¼ˆMJ.tmp_can_ronï¼‰+ï¼ˆequal,ï¼ˆRï¼ˆMJ.search_ronã‚«ã‚¦ãƒ³ã‚¿ï¼‰ï¼‰,ronï¼‰
+	ï¼‰
+ï¼‰
 
-”----------------------------------------------------------
-” tenpai? ƒeƒ“ƒpƒC‚ğéŒ¾‚·‚é‚©q‚Ë‚é
-”----------------------------------------------------------
-–MJ.tenpai?
-”ƒRƒ}ƒ“ƒh‚ğ‘—‚ç‚È‚¢‚±‚Æ‚ÅƒT[ƒo[‚É‘Î‰‚ğˆÏ”C‚·‚é
-icall,MJ.SendResponse,iR1j,j
-”icall,MJ.SendResponse,iR1j,yesj
+ï¼ƒ----------------------------------------------------------
+ï¼ƒ tenpai? ãƒ†ãƒ³ãƒ‘ã‚¤ã‚’å®£è¨€ã™ã‚‹ã‹å°‹ã­ã‚‹
+ï¼ƒ----------------------------------------------------------
+ï¼ŠMJ.tenpai?
+ï¼ƒã‚³ãƒãƒ³ãƒ‰ã‚’é€ã‚‰ãªã„ã“ã¨ã§ã‚µãƒ¼ãƒãƒ¼ã«å¯¾å¿œã‚’å§”ä»»ã™ã‚‹
+ï¼ˆcall,MJ.SendResponse,ï¼ˆR1ï¼‰,ï¼‰
+ï¼ƒï¼ˆcall,MJ.SendResponse,ï¼ˆR1ï¼‰,yesï¼‰
 
-”----------------------------------------------------------
-” say ”­º
-” Reference2: ƒvƒŒƒCƒ„[–¼
-” Reference3: (chi|pon|kan|ron|tsumo|richi|tenpai|noten)
-”----------------------------------------------------------
-–MJ.say
-„MJ.say©•ª	icompare,iR2j,iFMO0namejj
-„MJ.say‘¼liR3j
+ï¼ƒ----------------------------------------------------------
+ï¼ƒ say ç™ºå£°
+ï¼ƒ Reference2: ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼å
+ï¼ƒ Reference3: (chi|pon|kan|ron|tsumo|richi|tenpai|noten)
+ï¼ƒ----------------------------------------------------------
+ï¼ŠMJ.say
+ï¼MJ.sayè‡ªåˆ†	ï¼ˆcompare,ï¼ˆR2ï¼‰,ï¼ˆFMO0nameï¼‰ï¼‰
+ï¼MJ.sayä»–äººï¼ˆR3ï¼‰
 
-–MJ.say©•ª
-„MJ.say©•ªiR3j
+ï¼ŠMJ.sayè‡ªåˆ†
+ï¼MJ.sayè‡ªåˆ†ï¼ˆR3ï¼‰
 
-–MJ.say©•ªchi
-Fƒ`[icall,MJ.ExecAqtk,‚¿'[j
-–MJ.say©•ªpon
-Fƒ|ƒ“icall,MJ.ExecAqtk,‚Û'‚ñj
-–MJ.say©•ªkan
-FƒJƒ“icall,MJ.ExecAqtk,‚©'‚ñj
-–MJ.say©•ªron
-Fi‚Ujƒƒ“icall,MJ.ExecAqtk,‚ë'‚ñj
-–MJ.say©•ªtsumo
-Fi‚Ujƒcƒ‚icall,MJ.ExecAqtk,‚Â'‚àj
-–MJ.say©•ªrichi
-Fi‚UjƒŠ[ƒ`icall,MJ.ExecAqtk,‚è'[‚¿j
-–MJ.say©•ªtenpai
-Fi‚Ujƒeƒ“ƒpƒCicall,MJ.ExecAqtk,‚Ä'‚ñ‚Ï‚¢j
-–MJ.say©•ªnoten
-Fi‚Ujƒm[ƒeƒ“icall,MJ.ExecAqtk,‚Ì'[‚Ä‚ñj
+ï¼ŠMJ.sayè‡ªåˆ†chi
+ï¼šãƒãƒ¼ï¼ˆcall,MJ.ExecAqtk,ã¡'ãƒ¼ï¼‰
+ï¼ŠMJ.sayè‡ªåˆ†pon
+ï¼šãƒãƒ³ï¼ˆcall,MJ.ExecAqtk,ã½'ã‚“ï¼‰
+ï¼ŠMJ.sayè‡ªåˆ†kan
+ï¼šã‚«ãƒ³ï¼ˆcall,MJ.ExecAqtk,ã‹'ã‚“ï¼‰
+ï¼ŠMJ.sayè‡ªåˆ†ron
+ï¼šï¼ˆï¼–ï¼‰ãƒ­ãƒ³ï¼ˆcall,MJ.ExecAqtk,ã‚'ã‚“ï¼‰
+ï¼ŠMJ.sayè‡ªåˆ†tsumo
+ï¼šï¼ˆï¼–ï¼‰ãƒ„ãƒ¢ï¼ˆcall,MJ.ExecAqtk,ã¤'ã‚‚ï¼‰
+ï¼ŠMJ.sayè‡ªåˆ†richi
+ï¼šï¼ˆï¼–ï¼‰ãƒªãƒ¼ãƒï¼ˆcall,MJ.ExecAqtk,ã‚Š'ãƒ¼ã¡ï¼‰
+ï¼ŠMJ.sayè‡ªåˆ†tenpai
+ï¼šï¼ˆï¼–ï¼‰ãƒ†ãƒ³ãƒ‘ã‚¤ï¼ˆcall,MJ.ExecAqtk,ã¦'ã‚“ã±ã„ï¼‰
+ï¼ŠMJ.sayè‡ªåˆ†noten
+ï¼šï¼ˆï¼–ï¼‰ãƒãƒ¼ãƒ†ãƒ³ï¼ˆcall,MJ.ExecAqtk,ã®'ãƒ¼ã¦ã‚“ï¼‰
 
-–MJ.say‘¼lrichi
-F\w9\w9ichoice,i‚Qj,i‚Rj,i‚VjjI
+ï¼ŠMJ.sayä»–äººrichi
+ï¼š\w9\w9ï¼ˆchoice,ï¼ˆï¼’ï¼‰,ï¼ˆï¼“ï¼‰,ï¼ˆï¼—ï¼‰ï¼‰ï¼
 
-—MJ.ExecAqtk
-i
-	i
+ï¼ MJ.ExecAqtk
+ï¼ˆ
+	ï¼ˆ
 		if
-		,iMJ.IsSoundEnabledj
-		,aqtkAPLAYASYNCAiA0j
-		,nopA
-	j
-j
+		,ï¼ˆMJ.IsSoundEnabledï¼‰
+		,aqtkã€PLAYASYNCã€ï¼ˆA0ï¼‰
+		,nopã€
+	ï¼‰
+ï¼‰
 
-”----------------------------------------------------------
-” agari ‚ ‚ª‚è
-” Reference2: ƒvƒŒƒCƒ„[–¼
-” Reference3: •„
-” Reference4: –ğ,ƒnƒ“”
-” Reference5: ˆÈ~AReference4“¯—l
-”----------------------------------------------------------
-–MJ.agari
-MJ.ó‘Ô	˜a—¹
+ï¼ƒ----------------------------------------------------------
+ï¼ƒ agari ã‚ãŒã‚Š
+ï¼ƒ Reference2: ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼å
+ï¼ƒ Reference3: ç¬¦
+ï¼ƒ Reference4: å½¹,ãƒãƒ³æ•°
+ï¼ƒ Reference5: ä»¥é™ã€Reference4åŒæ§˜
+ï¼ƒ----------------------------------------------------------
+ï¼ŠMJ.agari
+ï¼„MJ.çŠ¶æ…‹	å’Œäº†
 
-”----------------------------------------------------------
-” ryukyoku —¬‹Ç
-”----------------------------------------------------------
-–MJ.ryukyoku
-MJ.ó‘Ô	—¬‹Ç
+ï¼ƒ----------------------------------------------------------
+ï¼ƒ ryukyoku æµå±€
+ï¼ƒ----------------------------------------------------------
+ï¼ŠMJ.ryukyoku
+ï¼„MJ.çŠ¶æ…‹	æµå±€
 
-”==========================================================
-” utility
-”==========================================================
-—MJ.SendResponse
-i
-	i
+ï¼ƒ==========================================================
+ï¼ƒ utility
+ï¼ƒ==========================================================
+ï¼ MJ.SendResponse
+ï¼ˆ
+	ï¼ˆ
 		if
-		,iMJ.IsSSTPj
+		,ï¼ˆMJ.IsSSTPï¼‰
 		,MJ.SendResponseSSTP
 		,MJ.SendResponseRaiseother
-	j
-j
+	ï¼‰
+ï¼‰
 
-—MJ.SendResponseSSTP
-iset,•ÔMƒwƒbƒ_uX-SSTP-PassThru-IDv,iMJ.ResponseEventIDjjƒÓ
-iset,•ÔMƒwƒbƒ_uX-SSTP-PassThru-Reference0v,iMJ.VersionjjƒÓ
-iloop,MJ.SendResponseSSTPLoop,0,i‚`‚Ì”j-1j
-—MJ.SendResponseSSTPLoop
-iset,•ÔMƒwƒbƒ_uX-SSTP-PassThru-Referenceicalc,iMJ.SendResponseSSTPLoopƒJƒEƒ“ƒ^j+1jv,i‚`iMJ.SendResponseSSTPLoopƒJƒEƒ“ƒ^jjj
+ï¼ MJ.SendResponseSSTP
+ï¼ˆset,è¿”ä¿¡ãƒ˜ãƒƒãƒ€ã€ŒX-SSTP-PassThru-IDã€,ï¼ˆMJ.ResponseEventIDï¼‰ï¼‰Ï†
+ï¼ˆset,è¿”ä¿¡ãƒ˜ãƒƒãƒ€ã€ŒX-SSTP-PassThru-Reference0ã€,ï¼ˆMJ.Versionï¼‰ï¼‰Ï†
+ï¼ˆloop,MJ.SendResponseSSTPLoop,0,ï¼ˆï¼¡ã®æ•°ï¼‰-1ï¼‰
+ï¼ MJ.SendResponseSSTPLoop
+ï¼ˆset,è¿”ä¿¡ãƒ˜ãƒƒãƒ€ã€ŒX-SSTP-PassThru-Referenceï¼ˆcalc,ï¼ˆMJ.SendResponseSSTPLoopã‚«ã‚¦ãƒ³ã‚¿ï¼‰+1ï¼‰ã€,ï¼ˆï¼¡ï¼ˆMJ.SendResponseSSTPLoopã‚«ã‚¦ãƒ³ã‚¿ï¼‰ï¼‰ï¼‰
 
-—MJ.SendResponseRaiseother
-\![raiseother,iSenderj,iMJ.ResponseEventIDj,iMJ.Versionjiloop,MJ.SendResponseRaiseotherLoop,0,i‚`‚Ì”j-1j]
-—MJ.SendResponseRaiseotherLoop
-,i‚`iMJ.SendResponseRaiseotherLoopƒJƒEƒ“ƒ^jj
+ï¼ MJ.SendResponseRaiseother
+\![raiseother,ï¼ˆSenderï¼‰,ï¼ˆMJ.ResponseEventIDï¼‰,ï¼ˆMJ.Versionï¼‰ï¼ˆloop,MJ.SendResponseRaiseotherLoop,0,ï¼ˆï¼¡ã®æ•°ï¼‰-1ï¼‰]
+ï¼ MJ.SendResponseRaiseotherLoop
+,ï¼ˆï¼¡ï¼ˆMJ.SendResponseRaiseotherLoopã‚«ã‚¦ãƒ³ã‚¿ï¼‰ï¼‰
 
-—MJ.IsSSTP
-inop,isplitiƒoƒCƒg’l,1jiSenderTypejiƒoƒCƒg’l,1j,jjƒÓ
-iset,MJ.R,0jiloop,MJ.IsSSTPLoop,0,i‚r‚Ì”j-1jiMJ.Rjiset,MJ.R,j
-—MJ.IsSSTPLoop
-i
-	i
+ï¼ MJ.IsSSTP
+ï¼ˆnop,ï¼ˆsplitï¼ˆãƒã‚¤ãƒˆå€¤,1ï¼‰ï¼ˆSenderTypeï¼‰ï¼ˆãƒã‚¤ãƒˆå€¤,1ï¼‰,ï¼‰ï¼‰Ï†
+ï¼ˆset,MJ.R,0ï¼‰ï¼ˆloop,MJ.IsSSTPLoop,0,ï¼ˆï¼³ã®æ•°ï¼‰-1ï¼‰ï¼ˆMJ.Rï¼‰ï¼ˆset,MJ.R,ï¼‰
+ï¼ MJ.IsSSTPLoop
+ï¼ˆ
+	ï¼ˆ
 		if
-		,i‚riMJ.IsSSTPLoopƒJƒEƒ“ƒ^jj==sstp
-		,setiƒoƒCƒg’l,1jMJ.RiƒoƒCƒg’l,1j1
-		,nopiƒoƒCƒg’l,1j
-	j
-j
+		,ï¼ˆï¼³ï¼ˆMJ.IsSSTPLoopã‚«ã‚¦ãƒ³ã‚¿ï¼‰ï¼‰==sstp
+		,setï¼ˆãƒã‚¤ãƒˆå€¤,1ï¼‰MJ.Rï¼ˆãƒã‚¤ãƒˆå€¤,1ï¼‰1
+		,nopï¼ˆãƒã‚¤ãƒˆå€¤,1ï¼‰
+	ï¼‰
+ï¼‰
 
-”==========================================================
-” Sound
-”==========================================================
-—MJ.SoundDefault
+ï¼ƒ==========================================================
+ï¼ƒ Sound
+ï¼ƒ==========================================================
+ï¼ MJ.SoundDefault
 1
-—MJ.IsSoundEnabled
-i
+ï¼ MJ.IsSoundEnabled
+ï¼ˆ
 	if
-	,i•Ï”uMJ.Soundv‚Ì‘¶İj
-	,iMJ.Soundj
-	,iMJ.SoundDefaultj
-j
-–m‚ª‰Ÿ‚³‚ê‚½
-i
-	i
+	,ï¼ˆå¤‰æ•°ã€ŒMJ.Soundã€ã®å­˜åœ¨ï¼‰
+	,ï¼ˆMJ.Soundï¼‰
+	,ï¼ˆMJ.SoundDefaultï¼‰
+ï¼‰
+ï¼ŠmãŒæŠ¼ã•ã‚ŒãŸ
+ï¼ˆ
+	ï¼ˆ
 		if
-		,i•Ï”uMJ.Soundv‚Ì‘¶İj
-		,setAMJ.SoundAicalc,!iMJ.Soundjj
-		,setAMJ.SoundAicalc,!iMJ.SoundDefaultjj
-	j
-j\0\_qSound: iif,iMJ.Soundj,ON,OFFj\_q
+		,ï¼ˆå¤‰æ•°ã€ŒMJ.Soundã€ã®å­˜åœ¨ï¼‰
+		,setã€MJ.Soundã€ï¼ˆcalc,!ï¼ˆMJ.Soundï¼‰ï¼‰
+		,setã€MJ.Soundã€ï¼ˆcalc,!ï¼ˆMJ.SoundDefaultï¼‰ï¼‰
+	ï¼‰
+ï¼‰\0\_qSound: ï¼ˆif,ï¼ˆMJ.Soundï¼‰,ON,OFFï¼‰\_q
