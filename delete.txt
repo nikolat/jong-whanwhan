@@ -1,1 +1,2 @@
 ghost\master\saori\ssu.dll
+ghost\master\satori_license.txt
