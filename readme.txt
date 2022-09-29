@@ -1,7 +1,7 @@
 ========================================================================
 【ソフト名称】雀-ホワンホワン
 【 制 作 者 】Don
-【 動作環境 】Windows11 21H2 + SSP/2.6.13
+【 動作環境 】Windows11 21H2 + SSP/2.6.14
 【 タ イ プ 】「伺か」用ゴースト
 【 取扱種別 】フリーウェア
 【 配布月日 】2014/01/18
@@ -32,7 +32,7 @@
 □SHIORIとして「里々」を使用しています。
 
     satoriya-shiori
-      https://github.com/ponapalt/satoriya-shiori
+      https://github.com/ukatech/satoriya-shiori
 
 □SAORIとして「AquesTalkSaori」を使用しています。
 
@@ -64,7 +64,7 @@
   著作者人格権はDonに帰属します。
 
     すくりや
-      http://nikolat.herokuapp.com/
+      https://nikolat.github.io/
 
   ライセンスは「CC0 1.0 Universal」です。
 

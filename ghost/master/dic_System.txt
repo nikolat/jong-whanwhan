@@ -63,7 +63,7 @@
 
 ＊sakura.recommendsites
 satoriya-shiori
-https://github.com/ponapalt/satoriya-shiori/wiki
+https://github.com/ukatech/satoriya-shiori/wiki
 
 ＊sakura.portalsites
 Disc-2
