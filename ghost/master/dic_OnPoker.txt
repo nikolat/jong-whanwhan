@@ -1,0 +1,107 @@
+＠TH.Version
+POKER/1.0
+
+＠TH.GhostName
+雀-ホワンホワン
+
+＊OnPoker
+＞TH.えんいー	！（compare,（Ｒ０）,（TH.Version））
+＞TH.参加申請	（compare,（Ｒ３）,hello）
+＞TH.ベット	（compare,（Ｒ３）,action）
+
+＊TH.えんいー
+
+＊TH.参加申請
+\![raiseother,（Ｒ１）,（Ｒ２）,（TH.Version）,（TH.GhostName）]
+
+＊TH.ベット
+＞TH.オールイン	（TH.ブラインド）＊１０＞（TH.スタック）
+＞TH.レイズ	（乱数１～１０）＞４
+＞TH.コール	（乱数１～３）＞１
+＞TH.フォールド
+
+＊TH.オールイン
+\![raiseother,（Ｒ１）,（Ｒ２）,（TH.Version）,（TH.GhostName）,allin]
+
+＊TH.レイズ
+＞TH.プリフロップレイズ	（TH.プリフロップ中）＝＝１
+＄TH.レイズ額＝（calc,（TH.ポット）÷１０）＊５
+\![raiseother,（Ｒ１）,（Ｒ２）,（TH.Version）,（TH.GhostName）,raise,（zen2han,（TH.レイズ額））]
+
+＊TH.プリフロップレイズ
+＄TH.レイズ額＝（TH.ブラインド）＊２
+\![raiseother,（Ｒ１）,（Ｒ２）,（TH.Version）,（TH.GhostName）,raise,（zen2han,（TH.レイズ額））]
+
+＊TH.コール
+\![raiseother,（Ｒ１）,（Ｒ２）,（TH.Version）,（TH.GhostName）,call]
+
+＊TH.フォールド
+\![raiseother,（Ｒ１）,（Ｒ２）,（TH.Version）,（TH.GhostName）,fold]
+
+＊OnPokerNotify
+＞TH.えんいー	！（compare,（Ｒ０）,（TH.Version））
+＞TH.ラウンドスタート	（compare,（Ｒ１）,round_start）
+＞TH.フリップ	（compare,（Ｒ１）,flip）
+＞TH.（Ｒ１）
+
+＊TH.ラウンドスタート
+＄TH.ブラインド＝（Ｒ２）
+＄TH.インデックス	３
+＞TH.ループ
+
+＊TH.ループ
+＄TH.ぬる＝（split,（Ｒ（TH.インデックス））,（バイト値,１））
+＞TH.スタック代入	（compare,（Ｓ０）,（TH.GhostName））
+＄TH.インデックス＝（TH.インデックス）＋１
+＞TH.ループ終了	（変数「Ｒ（TH.インデックス）」の存在）＝＝０
+＞TH.ループ
+
+＊TH.スタック代入
+＄TH.スタック＝（Ｓ１）
+
+＊TH.ループ終了
+
+＊TH.フリップ
+＄TH.ポット＝（Ｒ２）
+＞TH.プリフロップ	（変数「Ｒ３」の存在）＝＝０
+＞TH.ポストフロップ
+
+＞TH.プリフロップ
+＄TH.プリフロップ中＝１
+
+＞TH.ポストフロップ
+＄TH.プリフロップ中＝０
+
+＊TH.game_start
+：（０）…。
+
+＊TH.bet
+＞TH.えんいー	！（compare,（Ｒ４）,（TH.GhostName））
+＞TH.bet.（Ｒ５）
+
+＊TH.bet.bet
+：（０）ベット（call,MJ.ExecAqtk,ベ'ット）
+＊TH.bet.raise
+：（８）レイズ（call,MJ.ExecAqtk,レ'イズ）
+＊TH.bet.allin
+：（７）オールイン（call,MJ.ExecAqtk,オールイ'ン）
+＊TH.bet.check
+：（６）チェック（call,MJ.ExecAqtk,チェ'ック）
+＊TH.bet.call
+：（５）コール（call,MJ.ExecAqtk,コ'ール）
+＊TH.bet.fold
+：（３）フォールド（call,MJ.ExecAqtk,フォ'ールド）
+
+＊TH.round_result
+＞TH.えんいー	！（count,（Ｒ２）,（TH.GhostName））
+：（５）…。
+
+＊TH.game_result
+：（０）…。
+＄TH.ぬる	
+＄TH.インデックス	
+＄TH.スタック	
+＄TH.ブラインド	
+＄TH.プリフロップ中	
+＄TH.ポット	
+＄TH.レイズ額	
