@@ -12,7 +12,7 @@ POKER/1.0
 ＊TH.えんいー
 
 ＊TH.参加申請
-\![raiseother,（Ｒ１）,（Ｒ２）,（TH.Version）,（TH.GhostName）]
+（call,TH.変数初期化）\![raiseother,（Ｒ１）,（Ｒ２）,（TH.Version）,（TH.GhostName）]
 
 ＊TH.ベット
 ＞TH.オールイン	（TH.ブラインド）＊１０＞（TH.スタック）
@@ -46,20 +46,13 @@ POKER/1.0
 
 ＊TH.ラウンドスタート
 ＄TH.ブラインド＝（Ｒ２）
-＄TH.インデックス	３
-＞TH.ループ
+＄TH.ぬる	（call,TH.get_stack）
 
-＊TH.ループ
-＄TH.ぬる＝（split,（Ｒ（TH.インデックス））,（バイト値,１））
-＞TH.スタック代入	（compare,（Ｓ０）,（TH.GhostName））
-＄TH.インデックス＝（TH.インデックス）＋１
-＞TH.ループ終了	（変数「Ｒ（TH.インデックス）」の存在）＝＝０
-＞TH.ループ
-
-＊TH.スタック代入
-＄TH.スタック＝（Ｓ１）
-
-＊TH.ループ終了
+＠TH.get_stack
+（loop,TH.get_stack_loop,3,（Ｒの数）-1）
+＠TH.get_stack_loop
+（nop,（split,（Ｒ（TH.get_stack_loopカウンタ））,（バイト値,１）））φ
+（（if,（compare,（Ｓ０）,（TH.GhostName））,set、TH.スタック、（Ｓ１）,nop、））
 
 ＊TH.フリップ
 ＄TH.ポット＝（Ｒ２）
@@ -93,11 +86,23 @@ POKER/1.0
 ：（３）フォールド（call,MJ.ExecAqtk,フォ'ールド）
 
 ＊TH.round_result
-＞TH.えんいー	！（count,（Ｒ２）,（TH.GhostName））
+＞TH.えんいー	（変数「TH.save.gameover」の存在）
+＞TH.勝利	（count,（Ｒ２）,（TH.GhostName））
+＄TH.ぬる	（call,TH.get_stack）
+＞TH.ゲームオーバー	（TH.スタック）<=0
+
+＊TH.勝利
 ：（５）…。
+
+＊TH.ゲームオーバー
+＄TH.save.gameover	1
+：（４）…。
 
 ＊TH.game_result
 ：（０）…。
+＞TH.変数初期化
+
+＊TH.変数初期化
 ＄TH.ぬる	
 ＄TH.インデックス	
 ＄TH.スタック	
@@ -105,3 +110,4 @@ POKER/1.0
 ＄TH.プリフロップ中	
 ＄TH.ポット	
 ＄TH.レイズ額	
+＄TH.save.gameover	
