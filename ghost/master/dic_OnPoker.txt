@@ -1,113 +1,249 @@
+＃==========================================================
+＃ LICENSE: CC0 1.0 Universal
+＃ http://creativecommons.org/publicdomain/zero/1.0/
+＃==========================================================
+
+＃==========================================================
+＃ 設定
+＃==========================================================
 ＠TH.Version
 POKER/1.0
-
 ＠TH.GhostName
 雀-ホワンホワン
-
-＊OnPoker
-＞TH.えんいー	！（compare,（Ｒ０）,（TH.Version））
-＞TH.参加申請	（compare,（Ｒ３）,hello）
-＞TH.ベット	（compare,（Ｒ３）,action）
-
-＊TH.えんいー
-
-＊TH.参加申請
-（call,TH.変数初期化）\![raiseother,（Ｒ１）,（Ｒ２）,（TH.Version）,（TH.GhostName）]
-
-＊TH.ベット
-＞TH.オールイン	（TH.ブラインド）＊１０＞（TH.スタック）
-＞TH.レイズ	（乱数１～１０）＞４
-＞TH.コール	（乱数１～３）＞１
-＞TH.フォールド
-
-＊TH.オールイン
-\![raiseother,（Ｒ１）,（Ｒ２）,（TH.Version）,（TH.GhostName）,allin]
-
-＊TH.レイズ
-＞TH.プリフロップレイズ	（TH.プリフロップ中）＝＝１
-＄TH.レイズ額＝（calc,（TH.ポット）÷１０）＊５
-\![raiseother,（Ｒ１）,（Ｒ２）,（TH.Version）,（TH.GhostName）,raise,（zen2han,（TH.レイズ額））]
-
-＊TH.プリフロップレイズ
-＄TH.レイズ額＝（TH.ブラインド）＊２
-\![raiseother,（Ｒ１）,（Ｒ２）,（TH.Version）,（TH.GhostName）,raise,（zen2han,（TH.レイズ額））]
-
-＊TH.コール
-\![raiseother,（Ｒ１）,（Ｒ２）,（TH.Version）,（TH.GhostName）,call]
-
-＊TH.フォールド
-\![raiseother,（Ｒ１）,（Ｒ２）,（TH.Version）,（TH.GhostName）,fold]
-
-＊OnPokerNotify
-＞TH.えんいー	！（compare,（Ｒ０）,（TH.Version））
-＞TH.ラウンドスタート	（compare,（Ｒ１）,round_start）
-＞TH.フリップ	（compare,（Ｒ１）,flip）
-＞TH.（Ｒ１）
-
-＊TH.ラウンドスタート
-＄TH.ブラインド＝（Ｒ２）
-＄TH.ぬる	（call,TH.get_stack）
-
-＠TH.get_stack
-（loop,TH.get_stack_loop,3,（Ｒの数）-1）
-＠TH.get_stack_loop
-（nop,（split,（Ｒ（TH.get_stack_loopカウンタ））,（バイト値,１）））φ
-（（if,（compare,（Ｓ０）,（TH.GhostName））,set、TH.スタック、（Ｓ１）,nop、））
-
-＊TH.フリップ
-＄TH.ポット＝（Ｒ２）
-＞TH.プリフロップ	（変数「Ｒ３」の存在）＝＝０
-＞TH.ポストフロップ
-
-＞TH.プリフロップ
-＄TH.プリフロップ中＝１
-
-＞TH.ポストフロップ
-＄TH.プリフロップ中＝０
-
-＊TH.game_start
+＊TH.talk.game_start
 ：（０）…。
-
-＊TH.bet
-＞TH.えんいー	！（compare,（Ｒ４）,（TH.GhostName））
-＞TH.bet.（Ｒ５）
-
-＊TH.bet.bet
+＊TH.talk.action.bet
 ：（０）ベット（call,MJ.ExecAqtk,ベ'ット）
-＊TH.bet.raise
+＊TH.talk.action.raise
 ：（８）レイズ（call,MJ.ExecAqtk,レ'イズ）
-＊TH.bet.allin
+＊TH.talk.action.allin
 ：（７）オールイン（call,MJ.ExecAqtk,オールイ'ン）
-＊TH.bet.check
+＊TH.talk.action.check
 ：（６）チェック（call,MJ.ExecAqtk,チェ'ック）
-＊TH.bet.call
+＊TH.talk.action.call
 ：（５）コール（call,MJ.ExecAqtk,コ'ール）
-＊TH.bet.fold
+＊TH.talk.action.fold
 ：（３）フォールド（call,MJ.ExecAqtk,フォ'ールド）
-
-＊TH.round_result
-＞TH.えんいー	（変数「TH.save.gameover」の存在）
-＞TH.勝利	（count,（Ｒ２）,（TH.GhostName））
-＄TH.ぬる	（call,TH.get_stack）
-＞TH.ゲームオーバー	（TH.スタック）<=0
-
-＊TH.勝利
+＊TH.talk.round.winner
 ：（５）…。
-
-＊TH.ゲームオーバー
-＄TH.save.gameover	1
+＊TH.talk.round.loser
 ：（４）…。
+＊TH.talk.gameend.winner
+：（８）フッ…。
+＊TH.talk.gameend.loser
+：（３）敵わない…。
 
-＊TH.game_result
-：（０）…。
-＞TH.変数初期化
+＃==========================================================
+＃ 以下は変更不要
+＃==========================================================
+＠OnPoker
+（call,TH.res.（R3））
 
-＊TH.変数初期化
-＄TH.ぬる	
-＄TH.インデックス	
-＄TH.スタック	
-＄TH.ブラインド	
-＄TH.プリフロップ中	
-＄TH.ポット	
-＄TH.レイズ額	
-＄TH.save.gameover	
+＠TH.res.hello
+（TH.clear_variables）（call,TH.make_response）
+＠TH.make_response
+\![raiseother,（R1）,（R2）,（TH.Version）,（TH.GhostName）,（join（バイト値,1）,（バイト値,1）（A0））]
+
+＠TH.res.action
+（
+	TH.make_action_array
+）（
+	set
+	,_ret
+	,（
+		whenlist
+		,（calc,（count,（TH.community）,（バイト値,1）））==
+		,0
+		,（call,TH.AI.PreFlop,（_action））
+		,3-1
+		,（call,TH.AI.Flop,（_action））
+		,4-1
+		,（call,TH.AI.Turn,（_action））
+		,5-1
+		,（call,TH.AI.River,（_action））
+	）
+）（
+	call
+	,TH.make_response
+	,（_ret）
+）（set,_action,）（set,_ret,）
+＠TH.make_action_array
+（loop,TH.make_action_array_loop,4,（Ｒの数）-1）
+＠TH.make_action_array_loop
+（
+	when
+	,（変数「_action」の存在）
+	,（set,_action,（_action）（バイト値,1）（R（TH.make_action_array_loopカウンタ）））
+	,（set,_action,（R（TH.make_action_array_loopカウンタ）））
+）
+
+＠OnPokerNotify
+（call,TH.res.（R1））
+
+＠TH.res.game_start
+（when,（TH.is_joined）,（TH.talk.game_start））
+＠TH.is_joined
+（set,_r,0）（loop,TH.is_joined_loop,2,（Ｒの数）-1）（_r）（set,_r,）
+＠TH.is_joined_loop
+（
+	when
+	,（compare（バイト値,1）（R（TH.is_joined_loopカウンタ））（バイト値,1）（TH.GhostName））
+	,（set,_r,1）
+）
+
+＠TH.res.round_start
+（
+	set,TH.blind,（R2）
+）（
+	set,TH.bet,0
+）（
+	set,TH.players,
+）（
+	TH.make_players_array
+）（
+	set,TH.round_players,（calc,（count,（TH.players）,（バイト値,2））+1）
+）（
+	set,TH.n_players,（TH.round_players）
+）
+＠TH.make_players_array
+（loop,TH.make_players_array_loop,3,（Ｒの数）-1）
+＠TH.make_players_array_loop
+（
+	when
+	,（変数「TH.players」の存在）
+	,（set,TH.players,（TH.players）（バイト値,2）（R（TH.make_players_array_loopカウンタ）））
+	,（set,TH.players,（R（TH.make_players_array_loopカウンタ）））
+）（
+	nop
+	,（
+		split
+		,（R（TH.make_players_array_loopカウンタ））
+		,（バイト値,1）
+	）
+）（
+	when
+	,（compare（バイト値,1）（S0）（バイト値,1）（TH.GhostName））
+	,（set,TH.stack,（S1））
+）
+
+＠TH.res.hand
+（set,TH.hand,（R2）（バイト値,1）（R3））
+
+＠TH.res.flip
+（
+	set,TH.pot,（R2）
+）（
+	set,TH.community,
+）（
+	TH.make_community_array
+）（
+	set,TH.current_bet,0
+）
+＠TH.make_community_array
+（loop,TH.make_community_array_loop,3,（Ｒの数）-1）
+＠TH.make_community_array_loop
+（
+	when
+	,（変数「TH.community」の存在）
+	,（set,TH.community,（TH.community）（バイト値,1）（R（TH.make_community_array_loopカウンタ）））
+	,（set,TH.community,（R（TH.make_community_array_loopカウンタ）））
+）
+
+＠TH.res.blind_bet
+（set,TH.bet,（R2））
+
+＠TH.res.bet
+（
+	set,TH.total_bet,（R2）
+）（
+	set,TH.current_bet,（R3）
+）（
+	set,_player,（R4）
+）（
+	set,_action,（R5）
+）（
+	when
+	,（compare（バイト値,1）（_action）（バイト値,1）fold）
+	,（set,TH.n_players,（calc,（TH.n_players）-1））
+）（
+	when
+	,（compare（バイト値,1）（_player）（バイト値,1）（TH.GhostName））
+	,（call,TH.talk.action.（_action））
+）（set,_player,）（set,_action,）
+
+＠TH.res.show_down
+
+＠TH.res.round_result
+（
+	set,_winner,（R2）
+）（
+	set,TH.players,
+）（
+	TH.make_players_array
+）（
+	when
+	,（count,（_winner）,（TH.GhostName））
+	,（TH.talk.round.winner）
+）（
+	when
+	,（TH.stack）<=0 && !（変数「TH.save.gameover」の存在）
+	,（TH.talk.round.loser）（set,TH.save.gameover,1）
+）（set,_winner,）
+
+＠TH.res.game_result
+（
+	when
+	,（compare（バイト値,1）（R2）（バイト値,1）（TH.GhostName））
+	,（TH.talk.gameend.winner）
+	,（TH.talk.gameend.loser）
+）（TH.clear_variables）
+
+＠TH.clear_variables
+（set,TH.bet,）φ
+（set,TH.blind,）φ
+（set,TH.current_bet,）φ
+（set,TH.hand,）φ
+（set,TH.n_players,）φ
+（set,TH.players,）φ
+（set,TH.pot,）φ
+（set,TH.round_players,）φ
+（set,TH.save.gameover,）φ
+（set,TH.stack,）φ
+（set,TH.total_bet,）
+
+＃==========================================================
+＃ AI
+＃==========================================================
+＠TH.AI.PreFlop
+（set,_raise,（calc,（TH.blind）*2））（TH.AI.Res）（set,_raise,）
+＠TH.AI.Flop
+（set,_raise,（calc,(（TH.pot）/10)*5））（TH.AI.Res）（set,_raise,）
+＠TH.AI.Turn
+（set,_raise,（calc,(（TH.pot）/10)*5））（TH.AI.Res）（set,_raise,）
+＠TH.AI.River
+（set,_raise,（calc,(（TH.pot）/10)*5））（TH.AI.Res）（set,_raise,）
+＠TH.AI.Res
+（
+	when
+	,（TH.blind）*10>（TH.stack）
+	,（TH.AI.Res.allin）
+	,（
+		when
+		,（乱数１～１０）>4
+		,（TH.AI.Res.raise）
+		,（
+			when
+			,（乱数１～３）>1
+			,（TH.AI.Res.call）
+			,（TH.AI.Res.fold）
+		）
+	）
+）
+＠TH.AI.Res.allin
+allin
+＠TH.AI.Res.raise
+raise（バイト値,1）（_raise）
+＠TH.AI.Res.call
+call
+＠TH.AI.Res.fold
+fold
