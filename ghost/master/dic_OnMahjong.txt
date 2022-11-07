@@ -235,34 +235,24 @@ OnMahjongResponse
 ＞MJ.say自分（R3）
 
 ＊MJ.say自分chi
-：チー（call,MJ.ExecAqtk,ち'ー）
+：チー（call,AQ.ExecAqtk,ち'ー）
 ＊MJ.say自分pon
-：ポン（call,MJ.ExecAqtk,ぽ'ん）
+：ポン（call,AQ.ExecAqtk,ぽ'ん）
 ＊MJ.say自分kan
-：カン（call,MJ.ExecAqtk,か'ん）
+：カン（call,AQ.ExecAqtk,か'ん）
 ＊MJ.say自分ron
-：（６）ロン（call,MJ.ExecAqtk,ろ'ん）
+：（６）ロン（call,AQ.ExecAqtk,ろ'ん）
 ＊MJ.say自分tsumo
-：（６）ツモ（call,MJ.ExecAqtk,つ'も）
+：（６）ツモ（call,AQ.ExecAqtk,つ'も）
 ＊MJ.say自分richi
-：（６）リーチ（call,MJ.ExecAqtk,り'ーち）
+：（６）リーチ（call,AQ.ExecAqtk,り'ーち）
 ＊MJ.say自分tenpai
-：（６）テンパイ（call,MJ.ExecAqtk,て'んぱい）
+：（６）テンパイ（call,AQ.ExecAqtk,て'んぱい）
 ＊MJ.say自分noten
-：（６）ノーテン（call,MJ.ExecAqtk,の'ーてん）
+：（６）ノーテン（call,AQ.ExecAqtk,の'ーてん）
 
 ＊MJ.say他人richi
 ：\w9\w9（choice,（２）,（３）,（７））！
-
-＠MJ.ExecAqtk
-（
-	（
-		if
-		,（MJ.IsSoundEnabled）
-		,aqtk、PLAYASYNC、（A0）
-		,nop、
-	）
-）
 
 ＃----------------------------------------------------------
 ＃ agari あがり
@@ -323,25 +313,3 @@ OnMahjongResponse
 !（count（バイト値,1）（Status）（バイト値,1）choosing）&&φ
 !（count（バイト値,1）（Status）（バイト値,1）minimizing）&&φ
 !（count（バイト値,1）（Status）（バイト値,1）timecritical）
-
-＃==========================================================
-＃ Sound
-＃==========================================================
-＠MJ.SoundDefault
-1
-＠MJ.IsSoundEnabled
-（
-	if
-	,（変数「MJ.Sound」の存在）
-	,（MJ.Sound）
-	,（MJ.SoundDefault）
-）
-＊mが押された
-（
-	（
-		if
-		,（変数「MJ.Sound」の存在）
-		,set、MJ.Sound、（calc,!（MJ.Sound））
-		,set、MJ.Sound、（calc,!（MJ.SoundDefault））
-	）
-）\0\_qSound: （if,（MJ.Sound）,ON,OFF）\_q

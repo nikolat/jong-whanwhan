@@ -71,3 +71,35 @@ http://disc2.s56.xrea.com/
 
 ＠homeurl
 https://raw.githubusercontent.com/nikolat/jong-whanwhan/main/
+
+＃==========================================================
+＃ 音声
+＃==========================================================
+＠AQ.SoundDefault
+1
+＠AQ.IsSoundEnabled
+（
+	if
+	,（変数「AQ.Sound」の存在）
+	,（AQ.Sound）
+	,（AQ.SoundDefault）
+）
+＊mが押された
+（
+	（
+		if
+		,（変数「AQ.Sound」の存在）
+		,set、AQ.Sound、（calc,!（AQ.Sound））
+		,set、AQ.Sound、（calc,!（AQ.SoundDefault））
+	）
+）\0\_qSound: （if,（AQ.Sound）,ON,OFF）\_q
+
+＠AQ.ExecAqtk
+（
+	（
+		if
+		,（AQ.IsSoundEnabled）
+		,aqtk、PLAYASYNC、（A0）
+		,nop、
+	）
+）
