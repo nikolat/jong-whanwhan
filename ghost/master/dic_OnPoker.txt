@@ -10,8 +10,10 @@
 POKER/1.0
 ＠TH.GhostName
 雀-ホワンホワン
+＃ゲーム開始
 ＊TH.talk.game_start
 ：（０）…。
+＃各種アクション
 ＊TH.talk.action.bet
 ：（０）ベット（call,MJ.ExecAqtk,ベ'ット）
 ＊TH.talk.action.raise
@@ -24,10 +26,13 @@ POKER/1.0
 ：（５）コール（call,MJ.ExecAqtk,コ'ール）
 ＊TH.talk.action.fold
 ：（３）フォールド（call,MJ.ExecAqtk,フォ'ールド）
+＃ラウンド勝利
 ＊TH.talk.round.winner
 ：（５）…。
-＊TH.talk.round.loser
+＃ドロップアウト
+＊TH.talk.round.dropout
 ：（４）…。
+＃ゲーム終了
 ＊TH.talk.gameend.winner
 ：（８）フッ…。
 ＊TH.talk.gameend.loser
@@ -187,7 +192,7 @@ POKER/1.0
 ）（
 	when
 	,（TH.stack）<=0 && !（変数「TH.save.gameover」の存在）
-	,（TH.talk.round.loser）（set,TH.save.gameover,1）
+	,（TH.talk.round.dropout）（set,TH.save.gameover,1）
 ）（set,_winner,）
 
 ＠TH.res.game_result
@@ -209,41 +214,147 @@ POKER/1.0
 （set,TH.round_players,）φ
 （set,TH.save.gameover,）φ
 （set,TH.stack,）φ
-（set,TH.total_bet,）
+（set,TH.total_bet,）φ
+（set,TH.AI.strength,）
 
 ＃==========================================================
 ＃ AI
 ＃==========================================================
+＃とりあえずフロップを見に行く
 ＠TH.AI.PreFlop
-（set,_raise,（calc,（TH.blind）*2））（TH.AI.Res）（set,_raise,）
-＠TH.AI.Flop
-（set,_raise,（calc,(（TH.pot）/10)*5））（TH.AI.Res）（set,_raise,）
-＠TH.AI.Turn
-（set,_raise,（calc,(（TH.pot）/10)*5））（TH.AI.Res）（set,_raise,）
-＠TH.AI.River
-（set,_raise,（calc,(（TH.pot）/10)*5））（TH.AI.Res）（set,_raise,）
-＠TH.AI.Res
 （
+	set,TH.AI.strength,（call,TH.calc_hand,（TH.hand））
+）（
 	when
-	,（TH.blind）*10>（TH.stack）
-	,（TH.AI.Res.allin）
+	,（count,（A0）,check）
+	,（set,_ret,check）
 	,（
 		when
-		,（乱数１～１０）>4
-		,（TH.AI.Res.raise）
+		,（count,（A0）,call）&&（TH.current_bet）<=（TH.blind）*3
+		,（set,_ret,call）
 		,（
 			when
-			,（乱数１～３）>1
-			,（TH.AI.Res.call）
-			,（TH.AI.Res.fold）
+			,（TH.current_bet）<=（TH.blind）*3||（TH.stack）<（TH.blind）*10
+			,（set,_ret,allin）
+			,（set,_ret,fold）
 		）
 	）
-）
-＠TH.AI.Res.allin
-allin
-＠TH.AI.Res.raise
-raise（バイト値,1）（_raise）
-＠TH.AI.Res.call
-call
-＠TH.AI.Res.fold
-fold
+）（_ret）（set,_ret,）
+
+＠TH.AI.Flop
+（
+	set,_strength,（call,TH.calc_hand,（TH.hand）（バイト値,1）（TH.community））
+）（＃何か役が出来たらraise
+	when
+	,（_strength）>（TH.AI.strength）
+	,（set,TH.AI.strength,（_strength））（
+		when
+		,（count,（A0）,bet）
+		,（set,_ret,bet（バイト値,1）（calc,(（TH.pot）/10)*5））
+		,（
+			when
+			,（count,（A0）,raise）
+			,（set,_ret,raise（バイト値,1）（calc,(（TH.pot）/10)*5））
+			,（set,_ret,allin）
+		）
+	）
+	,（＃check出来るときはcheck
+		when
+		,（count,（A0）,check）
+		,（set,_ret,check）
+		,（set,_ret,fold）
+	）
+）（_ret）（set,_strength,）（set,_ret,）
+
+＠TH.AI.Turn
+（
+	set,_strength,（call,TH.calc_hand,（TH.hand）（バイト値,1）（TH.community））
+）（
+	when
+	,（_strength）>（TH.AI.strength）
+	,（set,TH.AI.strength,（_strength））（
+		when
+		,（count,（A0）,bet）
+		,（set,_ret,bet（バイト値,1）（calc,(（TH.pot）/10)*5））
+		,（
+			when
+			,（count,（A0）,raise）
+			,（set,_ret,raise（バイト値,1）（calc,(（TH.pot）/10)*5））
+			,（set,_ret,allin）
+		）
+	）
+	,（
+		when
+		,（count,（A0）,check）
+		,（set,_ret,check）
+		,（＃1-Pair以上の役が出来ていたらcall
+			when
+			,（TH.AI.strength）>1
+			,（set,_ret,call）
+			,（set,_ret,fold）
+		）
+	）
+）（_ret）（set,_strength,）（set,_ret,）
+
+＠TH.AI.River
+（TH.AI.Turn）
+
+＃==========================================================
+＃ SAORIを使わず独自に強さ判定 フラッシュ/ストレートはスルー
+＃==========================================================
+＠TH.calc_hand
+（
+	set,_h,（erase,（erase,（erase,（erase,（A0）,S）,H）,D）,C）
+）（
+	set,_h,†（replace,（_h）,（バイト値,1）,††）†
+）（set,_c,0）（loop,TH.calc_hand_loop,1,13）（TH.calc_hand_r）（set,_h,）（set,_c,）（set,_r,）
+＠TH.calc_hand_loop
+（set,_c,（_c）（count,（_h）,†（TH.calc_hand_loopカウンタ）†））
+＠TH.calc_hand_r
+（
+	when
+	,（count,（_c）,4）==1
+	,（set,_r,（TH.Hand.FourOfAKind））
+	,（
+		when
+		,（count,（_c）,3）==1&&（count,（_c）,2）==1
+		,（set,_r,（TH.Hand.FullHouse））
+		,（
+			when
+			,（count,（_c）,3）==1
+			,（set,_r,（TH.Hand.ThreeOfAKind））
+			,（
+				when
+				,（count,（_c）,2）==2
+				,（set,_r,（TH.Hand.TwoPair））
+				,（
+					when
+					,（count,（_c）,2）==1
+					,（set,_r,（TH.Hand.OnePair））
+					,（set,_r,（TH.Hand.HighCards））
+				）
+			）
+		）
+	）
+）（_r）
+
+＠TH.Hand.None
+0
+＠TH.Hand.HighCards
+1
+＠TH.Hand.OnePair
+2
+＠TH.Hand.TwoPair
+3
+＠TH.Hand.ThreeOfAKind
+4
+＠TH.Hand.Straight
+5
+＠TH.Hand.Flush
+6
+＠TH.Hand.FullHouse
+7
+＠TH.Hand.FourOfAKind
+8
+＠TH.Hand.StraightFlush
+9
