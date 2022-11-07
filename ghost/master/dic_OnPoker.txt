@@ -27,15 +27,15 @@ POKER/1.0
 ＊TH.talk.action.fold
 ：（３）フォールド（call,AQ.ExecAqtk,フォ'ールド）
 ＃ラウンド勝利
-＊TH.talk.round.winner
+＊TH.talk.round.win
 ：（５）…。
 ＃ドロップアウト
 ＊TH.talk.round.dropout
 ：（４）…。
 ＃ゲーム終了
-＊TH.talk.gameend.winner
+＊TH.talk.game_result.win
 ：（８）フッ…。
-＊TH.talk.gameend.loser
+＊TH.talk.game_result.lose
 ：（３）敵わない…。
 
 ＃==========================================================
@@ -188,7 +188,7 @@ POKER/1.0
 ）（
 	when
 	,（count,（_winner）,（TH.GhostName））
-	,（TH.talk.round.winner）
+	,（TH.talk.round.win）
 ）（
 	when
 	,（TH.stack）<=0 && !（変数「TH.save.gameover」の存在）
@@ -199,8 +199,8 @@ POKER/1.0
 （
 	when
 	,（compare（バイト値,1）（R2）（バイト値,1）（TH.GhostName））
-	,（TH.talk.gameend.winner）
-	,（TH.talk.gameend.loser）
+	,（TH.talk.game_result.win）
+	,（TH.talk.game_result.lose）
 ）（TH.clear_variables）
 
 ＠TH.clear_variables
