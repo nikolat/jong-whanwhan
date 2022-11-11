@@ -29,6 +29,12 @@ POKER/1.0
 ＃ラウンド勝利
 ＊TH.talk.round.win
 ：（５）…。
+＃ショーダウン引き分け
+＊TH.talk.round.draw
+：（１）…。
+＃ショーダウン負け
+＊TH.talk.round.lose
+：（３）…。
 ＃ドロップアウト
 ＊TH.talk.round.dropout
 ：（４）…。
@@ -104,6 +110,8 @@ POKER/1.0
 ）（
 	set,TH.players,
 ）（
+	set,TH.save.fold,
+）（
 	TH.make_players_array
 ）（
 	set,TH.round_players,（calc,（count,（TH.players）,（バイト値,2））+1）
@@ -168,12 +176,16 @@ POKER/1.0
 	set,_action,（R5）
 ）（
 	when
-	,（compare（バイト値,1）（_action）（バイト値,1）fold）
+	,（compare,（_action）,fold）
 	,（set,TH.n_players,（calc,（TH.n_players）-1））
 ）（
 	when
 	,（compare（バイト値,1）（_player）（バイト値,1）（TH.GhostName））
-	,（call,TH.talk.action.（_action））
+	,（
+		when
+		,（compare,（_action）,fold）
+		,（set,TH.save.fold,1）
+	）（call,TH.talk.action.（_action））
 ）（set,_player,）（set,_action,）
 
 ＠TH.res.show_down
@@ -188,11 +200,26 @@ POKER/1.0
 ）（
 	when
 	,（count,（_winner）,（TH.GhostName））
-	,（TH.talk.round.win）
-）（
-	when
-	,（TH.stack）<=0 && !（変数「TH.save.gameover」の存在）
-	,（TH.talk.round.dropout）（set,TH.save.gameover,1）
+	,（
+		when
+		,（count,（_winner）,（バイト値,1））==0
+		,（TH.talk.round.win）
+		,（TH.talk.round.draw）
+	）
+	,（
+		when
+		,（TH.stack）<=0 
+		,（
+			when
+			,!（変数「TH.save.dropout」の存在）
+			,（TH.talk.round.dropout）（set,TH.save.dropout,1）
+		）
+		,（
+			when
+			,!（変数「TH.save.fold」の存在）
+			,（TH.talk.round.lose）
+		）
+	）
 ）（set,_winner,）
 
 ＠TH.res.game_result
@@ -212,7 +239,8 @@ POKER/1.0
 （set,TH.players,）φ
 （set,TH.pot,）φ
 （set,TH.round_players,）φ
-（set,TH.save.gameover,）φ
+（set,TH.save.dropout,）φ
+（set,TH.save.fold,）φ
 （set,TH.stack,）φ
 （set,TH.total_bet,）φ
 （set,TH.AI.strength,）
