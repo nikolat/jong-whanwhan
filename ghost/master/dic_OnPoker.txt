@@ -341,11 +341,11 @@ POKER/1.0
 ＠TH.calc_hand_r
 （
 	when
-	,（count,（_c）,4）==1
+	,（count,（_c）,4）>=1
 	,（set,_r,（TH.Hand.FourOfAKind））
 	,（
 		when
-		,（count,（_c）,3）==1&&（count,（_c）,2）==1
+		,（count,（_c）,3）>=2||（count,（_c）,3）==1&&（count,（_c）,2）>=1
 		,（set,_r,（TH.Hand.FullHouse））
 		,（
 			when
@@ -353,7 +353,7 @@ POKER/1.0
 			,（set,_r,（TH.Hand.ThreeOfAKind））
 			,（
 				when
-				,（count,（_c）,2）==2
+				,（count,（_c）,2）>=2
 				,（set,_r,（TH.Hand.TwoPair））
 				,（
 					when
