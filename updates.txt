@@ -2,7 +2,7 @@ charset,UTF-8
 file,delete.txt2fd8de94c1fded4ac72093d76d400b31size=59date=2012-12-21T00:00:00
 file,ghost/master/descript.txt289284a72236c33f24e5c7078018d925size=302date=2012-12-21T00:00:00
 file,ghost/master/dic_OnMahjong.txt2dfa8416f261fe9fc5b0bd82c8439f73size=10696date=2012-12-21T00:00:00
-file,ghost/master/dic_OnPoker.txta9ffa47356754e7c0ccc9fd39ee7b75asize=12499date=2012-12-21T00:00:00
+file,ghost/master/dic_OnPoker.txt0692430965d1dfbd80a6e548b36d8375size=12624date=2012-12-21T00:00:00
 file,ghost/master/dic_System.txt264c76a2d57cea89a132034f8bc16e0csize=2041date=2012-12-21T00:00:00
 file,ghost/master/icon.ico12f3785c18a95f91c1cf9480eede8045size=15086date=2012-12-21T00:00:00
 file,ghost/master/saori/aqtk/AqLicense.txt646967832de73129b6495dc5ff2ed311size=2720date=2012-12-21T00:00:00
