@@ -233,6 +233,7 @@ POKER/1.0
 ＠TH.clear_variables
 （set,TH.bet,）φ
 （set,TH.blind,）φ
+（set,TH.community,）φ
 （set,TH.current_bet,）φ
 （set,TH.hand,）φ
 （set,TH.n_players,）φ
@@ -328,43 +329,129 @@ POKER/1.0
 （TH.AI.Turn）
 
 ＃==========================================================
-＃ SAORIを使わず独自に強さ判定 フラッシュ/ストレートはスルー
+＃ SAORIを使わず独自に強さ判定
 ＃==========================================================
 ＠TH.calc_hand
 （
+	set,_is_flush,（TH.calc_hand.is_flush）
+）（
 	set,_h,（erase,（erase,（erase,（erase,（A0）,S）,H）,D）,C）
 ）（
 	set,_h,†（replace,（_h）,（バイト値,1）,††）†
-）（set,_c,0）（loop,TH.calc_hand_loop,1,13）（TH.calc_hand_r）（set,_h,）（set,_c,）（set,_r,）
+）（
+	set,_is_straight,（TH.calc_hand.is_straight）
+）（
+	set,_is_straight_flush,（TH.calc_hand.is_straight_flush）
+）（set,_c,0）（loop,TH.calc_hand_loop,1,13）（TH.calc_hand_r）（set,_h,）（set,_c,）（set,_is_flush,）（set,_is_straight,）（set,_is_straight_flush,）
 ＠TH.calc_hand_loop
 （set,_c,（_c）（count,（_h）,†（TH.calc_hand_loopカウンタ）†））
 ＠TH.calc_hand_r
 （
 	when
-	,（count,（_c）,4）>=1
-	,（set,_r,（TH.Hand.FourOfAKind））
+	,（_is_straight_flush）
+	,（set,_r,（TH.Hand.StraightFlush））
 	,（
 		when
-		,（count,（_c）,3）>=2||（count,（_c）,3）==1&&（count,（_c）,2）>=1
-		,（set,_r,（TH.Hand.FullHouse））
+		,（count,（_c）,4）>=1
+		,（set,_r,（TH.Hand.FourOfAKind））
 		,（
 			when
-			,（count,（_c）,3）==1
-			,（set,_r,（TH.Hand.ThreeOfAKind））
+			,（count,（_c）,3）>=2||（count,（_c）,3）==1&&（count,（_c）,2）>=1
+			,（set,_r,（TH.Hand.FullHouse））
 			,（
 				when
-				,（count,（_c）,2）>=2
-				,（set,_r,（TH.Hand.TwoPair））
+				,（_is_flush）
+				,（set,_r,（TH.Hand.Flush））
 				,（
 					when
-					,（count,（_c）,2）==1
-					,（set,_r,（TH.Hand.OnePair））
-					,（set,_r,（TH.Hand.HighCards））
+					,（_is_straight）
+					,（set,_r,（TH.Hand.Straight））
+					,（
+						when
+						,（count,（_c）,3）==1
+						,（set,_r,（TH.Hand.ThreeOfAKind））
+						,（
+							when
+							,（count,（_c）,2）>=2
+							,（set,_r,（TH.Hand.TwoPair））
+							,（
+								when
+								,（count,（_c）,2）==1
+								,（set,_r,（TH.Hand.OnePair））
+								,（set,_r,（TH.Hand.HighCards））
+							）
+						）
+					）
 				）
 			）
 		）
 	）
-）（_r）
+）（_r）（set,_r,）
+＠TH.calc_hand.is_flush
+（
+	if
+	,（count,（A0）,S）>=5||（count,（A0）,H）>=5||（count,（A0）,D）>=5||（count,（A0）,C）>=5
+	,1
+	,0
+）
+＠TH.calc_hand.is_straight
+（set,_rs,0）（loop,TH.calc_straight_loop,1,9）（TH.calc_royal_straight）（_rs）（set,_rs,）
+＠TH.calc_straight_loop
+（
+	when
+	,（count,（_h）,†（TH.calc_straight_loopカウンタ）†）>=1
+		&&（count,（_h）,†（calc,（TH.calc_straight_loopカウンタ）+1）†）>=1
+		&&（count,（_h）,†（calc,（TH.calc_straight_loopカウンタ）+2）†）>=1
+		&&（count,（_h）,†（calc,（TH.calc_straight_loopカウンタ）+3）†）>=1
+		&&（count,（_h）,†（calc,（TH.calc_straight_loopカウンタ）+4）†）>=1
+	,（set,_rs,1）
+）
+＠TH.calc_royal_straight
+（
+	when
+	,（count,（_h）,†10†）>=1
+		&&（count,（_h）,†11†）>=1
+		&&（count,（_h）,†12†）>=1
+		&&（count,（_h）,†13†）>=1
+		&&（count,（_h）,†1†）>=1
+	,（set,_rs,1）
+）
+＠TH.calc_hand.is_straight_flush
+（
+	set,_sf,†（replace,（A0）,（バイト値,1）,††）†
+）（set,_rs,0）（loop,TH.calc_straight_flush_loop1,1,4）（TH.calc_royal_straight_flush）（_rs）（set,_rs,）（set,_sf,）（set,_suit,）
+＠TH.calc_straight_flush_loop1
+（
+	whenlist
+	,（TH.calc_straight_flush_loop1カウンタ）==
+	,1
+	,（set,_suit,S）
+	,2
+	,（set,_suit,H）
+	,3
+	,（set,_suit,D）
+	,（set,_suit,C）
+）（loop,TH.calc_straight_flush_loop2,1,9）（TH.calc_royal_straight_flush）
+＠TH.calc_straight_flush_loop2
+（
+	when
+	,（count,（_sf）,†（_suit）（TH.calc_straight_flush_loop2カウンタ）†）>=1
+		&&（count,（_sf）,†（_suit）（calc,（TH.calc_straight_loop2カウンタ）+1）†）>=1
+		&&（count,（_sf）,†（_suit）（calc,（TH.calc_straight_loop2カウンタ）+2）†）>=1
+		&&（count,（_sf）,†（_suit）（calc,（TH.calc_straight_loop2カウンタ）+3）†）>=1
+		&&（count,（_sf）,†（_suit）（calc,（TH.calc_straight_loop2カウンタ）+4）†）>=1
+	,（set,_rs,1）
+）
+＠TH.calc_royal_straight_flush
+（
+	when
+	,（count,（_sf）,†（_suit）10†）>=1
+		&&（count,（_sf）,†（_suit）11†）>=1
+		&&（count,（_sf）,†（_suit）12†）>=1
+		&&（count,（_sf）,†（_suit）13†）>=1
+		&&（count,（_sf）,†（_suit）1†）>=1
+	,（set,_rs,1）
+）
 
 ＠TH.Hand.None
 0
