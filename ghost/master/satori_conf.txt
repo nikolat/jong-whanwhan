@@ -1,9 +1,10 @@
-��������
-������Ԋu	0
-������Ԋu�덷	0
-���f�t�H���g�T�[�t�F�X0	0
-���f�t�H���g�T�[�t�F�X1	10
-�������}���E�F�C�g�^�C�v	���
+＊初期化
+＄喋り間隔	0
+＄喋り間隔誤差	0
+＄デフォルトサーフェス0	0
+＄デフォルトサーフェス1	10
+＄自動挿入ウェイトタイプ	一般
+＄外部から実行可能なイベントの接頭辞	OnMahjong
 
-��SAORI
+＠SAORI
 aqtk,saori/aqtk/AqTalkSaori.dll
