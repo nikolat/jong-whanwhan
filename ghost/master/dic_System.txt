@@ -66,8 +66,8 @@ satoriya-shiori
 https://github.com/ukatech/satoriya-shiori/wiki
 
 ＊sakura.portalsites
-Disc-2
-http://disc2.s56.xrea.com/
+うかフィード
+https://feed.ukagaka.net/
 
 ＠homeurl
 https://raw.githubusercontent.com/nikolat/jong-whanwhan/main/
