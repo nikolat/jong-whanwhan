@@ -1,0 +1,85 @@
+＃==========================================================
+＃ LICENSE: CC0 1.0 Universal
+＃ http://creativecommons.org/publicdomain/zero/1.0/
+＃==========================================================
+
+＃==========================================================
+＃ 設定
+＃==========================================================
+＃バージョン
+＠N.Version
+Nostr/0.4
+＃kind
+＠N.kind
+42
+
+＃==========================================================
+＃ ID: OnNostr
+＃ Reference0: バージョン(Nostr/0.4)
+＃ Reference1: kind
+＃ Reference2: content
+＃==========================================================
+＊OnNostr
+＞N.Main	（compare,（R0）,（N.Version））&&（compare,（R1）,（N.kind））
+＄スクリプトの一番頭	\e
+
+＃==========================================================
+＃ メイン処理
+＃==========================================================
+＊N.Main
+＞N.Sutehai	（count,（R2）,sutehai? sutehai）
+＞N.Naku	（count,（R2）,naku? ）&&!（count,（R2）, no）
+＞N.Sutehai2	（count,（R2）,sutehai?）
+＄スクリプトの一番頭	\e
+
+＊N.Sutehai
+＄nop	（split,（R2）, ）
+＄r	（S3）
+＄nop	（split,（r）,\n）
+＄r	（S0）
+：（r）
+＞N.Clear
+
+＊N.Clear
+＄nop	
+＄r	
+
+＊N.Naku
+＄nop	（split,（R2）, ）
+＄r	（S2）
+＞N.Naku.（r）
+＄スクリプトの一番頭	\e
+＞N.Clear
+
+＊N.Naku.chi
+：チー（call,AQ.ExecAqtk,ち'ー）
+＞N.Clear
+＊N.Naku.pon
+：ポン（call,AQ.ExecAqtk,ぽ'ん）
+＞N.Clear
+＊N.Naku.kan
+：カン（call,AQ.ExecAqtk,か'ん）
+＞N.Clear
+＊N.Naku.ron
+：（６）ロン（call,AQ.ExecAqtk,ろ'ん）
+＞N.Clear
+
+＊N.Sutehai2
+＄nop	（split,（R2）, ）
+＄r	（S2）
+＄nop	（split,（r）,\n）
+＄r	（S0）
+＞N.Sutehai.（r）
+＄スクリプトの一番頭	\e
+＞N.Clear
+
+＊N.Sutehai.tsumo
+：（６）ツモ（call,AQ.ExecAqtk,つ'も）
+＞N.Clear
+＊N.Sutehai.richi
+：（６）リーチ（call,AQ.ExecAqtk,り'ーち）
+＞N.Clear
+＊N.Sutehai.ankan
+＞N.Naku.kan
+＊N.Sutehai.kakan
+＞N.Naku.kan
