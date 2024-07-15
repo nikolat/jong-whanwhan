@@ -2,6 +2,7 @@ charset,UTF-8
 file,delete.txt2fd8de94c1fded4ac72093d76d400b31size=59date=2012-12-21T00:00:00
 file,ghost/master/descript.txt8b6c79daf5a2300f2df13a67e4c172fasize=312date=2012-12-21T00:00:00
 file,ghost/master/dic_OnMahjong.txt2dfa8416f261fe9fc5b0bd82c8439f73size=10696date=2012-12-21T00:00:00
+file,ghost/master/dic_OnNostr.txtcd7f929b25aba06568314a45a20d102asize=2055date=2012-12-21T00:00:00
 file,ghost/master/dic_OnPoker.txt0692430965d1dfbd80a6e548b36d8375size=12624date=2012-12-21T00:00:00
 file,ghost/master/dic_System.txt36f80b858893311a0b39a04a14d7801asize=2052date=2012-12-21T00:00:00
 file,ghost/master/icon.ico12f3785c18a95f91c1cf9480eede8045size=15086date=2012-12-21T00:00:00
@@ -9,7 +10,7 @@ file,ghost/master/saori/aqtk/AqLicense.txt646967832de73129b6495dc5ff2ed311size
 file,ghost/master/saori/aqtk/AqTalkSaori.dll3ca3db02a21292ac7fdbbe572f7e4254size=192512date=2012-12-21T00:00:00
 file,ghost/master/saori/aqtk/AqTalkSaori_readme.txtb8b46f2feafc004edd8dfa77397b0260size=5708date=2012-12-21T00:00:00
 file,ghost/master/saori/aqtk/AquesTalk.dlle352165e9da54e255c3c25a33cb85aaasize=110592date=2012-12-21T00:00:00
-file,ghost/master/satori.dllf2d0dfa96374d900a6ee6ec67d925eeesize=708608date=2012-12-21T00:00:00
+file,ghost/master/satori.dll095c5a263112fb0a5ad5ccaa239c8dc9size=712704date=2012-12-21T00:00:00
 file,ghost/master/satori_conf.txt5950212c98e0898924f575a23d10c625size=281date=2012-12-21T00:00:00
 file,install.txt5c82fbacc63eaec6946402d5e9813473size=77date=2012-12-21T00:00:00
 file,readme.txt01f39d0241f69d11101c8ae2d2b45b32size=2502date=2012-12-21T00:00:00
