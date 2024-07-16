@@ -39,7 +39,7 @@ Nostr/0.4
 ＄r	（S3）
 ＄nop	（split,（r）,\n）
 ＄r	（S0）
-：（r）
+：\0\_q\_b[（call,N.GetPaiUrl,（r））,centerx,centery,--option=opaque,--option=use_self_alpha,--option=background]\e
 ＞N.Clear
 
 ＊N.Clear
@@ -86,3 +86,24 @@ Nostr/0.4
 ＞N.Naku.kan
 ＊N.Sutehai.kakan
 ＞N.Naku.kan
+
+＠N.GetPaiUrl
+https://awayuki.github.io/emoji/mahjong-（
+	whenlist
+	,（at,（A0）,1）（at,（A0）,0）==
+	,z1
+	,east
+	,z2
+	,south
+	,z3
+	,west
+	,z4
+	,north
+	,z5
+	,white
+	,z6
+	,green
+	,z7
+	,red
+	,（at,（A0）,1）（at,（A0）,0）
+）.png
