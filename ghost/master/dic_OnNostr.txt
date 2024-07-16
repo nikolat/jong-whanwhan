@@ -21,7 +21,8 @@ Nostr/0.4
 ＃==========================================================
 ＊OnNostr
 ＞N.Main	（compare,（R0）,（N.Version））&&（compare,（R1）,（N.kind））
-＄スクリプトの一番頭	\e
+＄スクリプトの一番頭	\C\0\e
+＞N.Clear
 
 ＃==========================================================
 ＃ メイン処理
@@ -30,7 +31,8 @@ Nostr/0.4
 ＞N.Sutehai	（count,（R2）,sutehai? sutehai）
 ＞N.Naku	（count,（R2）,naku? ）&&!（count,（R2）, no）
 ＞N.Sutehai2	（count,（R2）,sutehai?）
-＄スクリプトの一番頭	\e
+＄スクリプトの一番頭	\C\0\e
+＞N.Clear
 
 ＊N.Sutehai
 ＄nop	（split,（R2）, ）
@@ -43,12 +45,13 @@ Nostr/0.4
 ＊N.Clear
 ＄nop	
 ＄r	
+：\edummy
 
 ＊N.Naku
 ＄nop	（split,（R2）, ）
 ＄r	（S2）
 ＞N.Naku.（r）
-＄スクリプトの一番頭	\e
+＄スクリプトの一番頭	\C\0\e
 ＞N.Clear
 
 ＊N.Naku.chi
@@ -70,7 +73,7 @@ Nostr/0.4
 ＄nop	（split,（r）,\n）
 ＄r	（S0）
 ＞N.Sutehai.（r）
-＄スクリプトの一番頭	\e
+＄スクリプトの一番頭	\C\0\e
 ＞N.Clear
 
 ＊N.Sutehai.tsumo
