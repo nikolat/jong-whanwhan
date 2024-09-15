@@ -60,7 +60,10 @@ Nostr/0.4
 ＊N.Naku.pon
 ：ポン（call,AQ.ExecAqtk,ぽ'ん）
 ＞N.Clear
-＊N.Naku.kan
+＊N.Naku.ankan
+：カン（call,AQ.ExecAqtk,か'ん）
+＞N.Clear
+＊N.Naku.kakan
 ：カン（call,AQ.ExecAqtk,か'ん）
 ＞N.Clear
 ＊N.Naku.ron
