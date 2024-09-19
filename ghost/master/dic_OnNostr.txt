@@ -70,7 +70,7 @@ Nostr/0.4
 ＊N.Sutehai2
 ＄nop	（split,（R2）, ）
 ＄r	（S2）
-＄nop	（split,（r）,\n）
+＄nop	（split_string,（r）,\n）
 ＄r	（S0）
 ＞N.Sutehai.（r）
 ＄スクリプトの一番頭	\C\0\e
